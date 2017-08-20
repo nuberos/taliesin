@@ -1,0 +1,56 @@
+{
+  "name": "taliesin",
+  "version": "0.0.1",
+  "description": "web application that fetch  and list in a pretty format a list of air pollution data",
+  "main": "./src/server/index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nuberos/taliesin.git"
+  },
+  "keywords": [
+    "pollution",
+    "eco",
+    "self",
+    "management",
+    "air"
+  ],
+  "author": "Pedro González Jiménez",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/nuberos/taliesin/issues"
+  },
+  "homepage": "https://github.com/nuberos/taliesin",
+  "dependencies": {
+    "handlebars": "^4.0.10",
+    "hapi": "^16.5.2",
+    "inert": "^4.2.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "vision": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.3.2",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "nodemon": "^1.11.0",
+    "source-map-loader": "^0.2.1",
+    "webpack": "^3.5.5",
+    "webpack-stream": "^4.0.0"
+  }
+}
