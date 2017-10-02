@@ -28,11 +28,13 @@
   },
   "homepage": "https://github.com/nuberos/taliesin",
   "dependencies": {
+    "d3": "^4.10.0",
     "handlebars": "^4.0.10",
     "hapi": "^16.5.2",
     "inert": "^4.2.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "topojson": "^3.0.0",
     "vision": "^4.1.1"
   },
   "devDependencies": {

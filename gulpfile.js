@@ -19,13 +19,14 @@ const REACT_FILES = path.join(CLIENT_DIR,'js','**', '*.js');
 const LESS_DIR = path.join(CLIENT_DIR, 'less');
 const LESS_FILES = path.join(LESS_DIR,'*.less');
 const CSS_DIR = path.join(CLIENT_DIR, 'css');
+const GEOJSON_DIR = path.join(CLIENT_DIR, 'geojson');
 
 const webpackCfg = require('./webpack.config.js');
 
 var tasks = {
-  development: ['less', 'start'],
-  staging: ['less', 'webpack'],
-  production: ['less', 'webpack']
+  development: ['less', 'geojson', 'start'],
+  staging: ['less', 'geojson','webpack'],
+  production: ['less', 'geojson','webpack']
 }
 
 /*
@@ -48,6 +49,11 @@ gulp.task('less', function() {
   .pipe(gulp.dest(CSS_DIR));
 });
 
+gulp.task('geojson',function(cb) {
+  gulp.src(path.join(GEOJSON_DIR,'*.json'))
+  .pipe(gulp.dest('dist'));
+});
+
 gulp.task('dist',function(cb) {
   gulp.src(REACT_FILES)
   .pipe(sourcemaps.init())
@@ -63,7 +69,7 @@ gulp.task('dist',function(cb) {
 gulp.task('webpack',['dist'],function() {
   gutil.log('webpack started', gutil.colors.green('123'));
   return gulp.src(path.join(SRC_DIR, 'dist','index.js'))
-  .pipe(webpack(webpackCfg))  
+  .pipe(webpack(webpackCfg))
   .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
   .pipe(gulp.dest('dist'))
   .on('end',function () {
