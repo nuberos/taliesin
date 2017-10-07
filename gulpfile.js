@@ -6,7 +6,7 @@ var less = require('gulp-less');
 var uglify = require('gulp-uglify');
 var path = require('path');
 var nodemon = require('nodemon');
-var babel = require("gulp-babel");
+//var babel = require("gulp-babel");
 var webpack= require('webpack-stream');
 
 
@@ -57,7 +57,7 @@ gulp.task('geojson',function(cb) {
 gulp.task('dist',function(cb) {
   gulp.src(REACT_FILES)
   .pipe(sourcemaps.init())
-  .pipe(babel())
+  //.pipe(babel())
   .pipe(sourcemaps.write("."))
   .pipe(gulp.dest('dist'))
   .on('end',function() {

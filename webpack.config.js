@@ -12,8 +12,15 @@ var config = {
     rules: [
       {
         test: /\.js$/,
-        use: ["source-map-loader"],
-        enforce: "pre"
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
+        /*use: ["source-map-loader"],
+        enforce: "pre"*/
       }
     ]
   }

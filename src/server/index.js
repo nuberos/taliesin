@@ -17,9 +17,11 @@ server.register([require('vision'),require('inert')], (err) => {
         html: require('handlebars')
       },
       relativeTo:  __dirname,
-      path: 'templates',
-      partialsPath: 'partials',
-      helpersPath: 'helpers'
+      path: './templates',
+      partialsPath: './partials',
+      layoutPath: './layouts',
+      layout: 'default',
+      helpersPath: './helpers'
     });
 
     server.route({
