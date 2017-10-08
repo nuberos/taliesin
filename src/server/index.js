@@ -45,6 +45,38 @@ server.route({
   }
 });
 
+server.route({
+  method: 'GET',
+  path: '/docs/airquality',
+  handler: function (request, reply) {
+    reply.view('airquality');
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/docs/how',
+  handler: function (request, reply) {
+    reply.view('how');
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/get-involved',
+  handler: function (request, reply) {
+    reply.view('getInvolved');
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/downloads',
+  handler: function (request, reply) {
+    reply.view('downloads');
+  }
+});
+
 server.start((err) => {
   if(err) {
     console.log(`an error happened while starting hapi server ${err}`);

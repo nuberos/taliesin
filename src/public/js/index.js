@@ -1,10 +1,12 @@
 /*import React from 'react';
 import ReactDOM from 'react-dom';
+import Header from './components/Header'
+
 
 //setInterval(tick,1000);
 
 ReactDOM.render(
-  <h1>Hello world!</h1>,
+  <Header/>,
   document.getElementById('root')
 );*/
 import showCityGraphs from './citydistricts';
@@ -15,8 +17,8 @@ import showChart from './chart';
 var mapInfo = initMap();
 function showNeighbourhoodData(d, data) {
   //d3.selectAll("g").attr("visibility", "hidden");
-  document.getElementById('mapcontainer').classList.remove("d-block");
-  document.getElementById('mapcontainer').classList.add("d-none");
+  document.getElementById('maincontainer').classList.remove("d-block");
+  document.getElementById('maincontainer').classList.add("d-none");
   //document.getElementById('neighbourhoodmapcontainer').classList.remove("d-none");
   //document.getElementById('neighbourhoodmapcontainer').classList.add("d-block");
   document.getElementById("neighbourhoodmapcontainer").style.marginLeft = "0px";
@@ -28,8 +30,8 @@ function showAllData(evt) {
   document.getElementById("neighbourhoodmapcontainer").style.marginLeft = "-9999px";
   //document.getElementById('neighbourhoodmapcontainer').classList.remove("d-block");
   //document.getElementById('neighbourhoodmapcontainer').classList.add("d-none");
-  document.getElementById('mapcontainer').classList.remove("d-none");
-  document.getElementById('mapcontainer').classList.add("d-block");
+  document.getElementById('maincontainer').classList.remove("d-none");
+  document.getElementById('maincontainer').classList.add("d-block");
 
 }
 var backArrow = document.getElementById('back');

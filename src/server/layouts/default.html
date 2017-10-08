@@ -1,176 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>taliesin</title>
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.iconmonstr.com/1.2.0/css/iconmonstr-iconic-font.min.css">
-<!--[if lt IE 9]>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>taliesin</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.2.0/css/iconmonstr-iconic-font.min.css">
+  <!--[if lt IE 9]>
   <link rel="stylesheet" href="PATH/TO/iconic-glyphs-legacy.css">
 <![endif]-->
-<style>
-
-#map #districts path {
-  stroke:white;
-  stroke-width: 2px;
-}
-/*
+  <style>
+    #map #districts path {
+      stroke: white;
+      stroke-width: 2px;
+    }
+    /*
 #neighbourhoods path {
   stroke:white;
   stroke-width: 1px;
 }
 */
-#map #neighbourhoods path:hover {
-	fill-opacity: .7;
-  cursor: pointer;
-  cursor: hand;
-}
 
-#back {
-  cursor: pointer;
-  cursor: hand;
-}
+    #map #neighbourhoods path:hover {
+      fill-opacity: .7;
+      cursor: pointer;
+      cursor: hand;
+    }
 
-body {
-  font-family: 'Lato', sans-serif;
-}
+    #back {
+      cursor: pointer;
+      cursor: hand;
+    }
 
-#neighbourhoodmapcontainer {
-  margin-left: -9999px;
-}
+    body {
+      font-family: 'Lato', sans-serif;
+    }
 
-#neighbourhoodmap {
-  height: 650px;
-}
+    #neighbourhoodmapcontainer {
+      margin-left: -9999px;
+    }
 
-#map .legend {
-  font-size: 12px;
-}
+    #neighbourhoodmap {
+      height: 650px;
+    }
 
-#map  div.tooltip {
- 	position: absolute;
-	text-align: center;
-	width: 200px;
-	height: 250px;
-	padding: 2px;
-	font: 12px sans-serif;
-	background: white;
-	border: 0px;
-	border-radius: 8px;
-	pointer-events: none;
-}
+    #map .legend {
+      font-size: 12px;
+    }
 
-#map hr.main {
+    #map div.tooltip {
+      position: absolute;
+      text-align: center;
+      width: 200px;
+      height: 250px;
+      padding: 2px;
+      font: 12px sans-serif;
+      background: white;
+      border: 0px;
+      border-radius: 8px;
+      pointer-events: none;
+    }
 
-  border: 0;
-  height: 2px;
-  background: #63C;
-  background-image: -webkit-linear-gradient(left, #C9F, #63C, #C9F);
-  background-image: -moz-linear-gradient(left, #C9F, #63C, #C9F);
-  background-image: -ms-linear-gradient(left, #C9F, #63C, #C9F);
-  background-image: -o-linear-gradient(left, #C9F, #63C, #C9F);
-}
+    #map hr.main {
+
+      border: 0;
+      height: 2px;
+      background: #63C;
+      background-image: -webkit-linear-gradient(left, #C9F, #63C, #C9F);
+      background-image: -moz-linear-gradient(left, #C9F, #63C, #C9F);
+      background-image: -ms-linear-gradient(left, #C9F, #63C, #C9F);
+      background-image: -o-linear-gradient(left, #C9F, #63C, #C9F);
+    }
 
 
-#graph path {
-    /*stroke: steelblue;*/
-    stroke-width: 2;
-    fill: none;
-}
-#graph .axis path,
-#graph .axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
-}
-</style>
+    #graph path {
+      /*stroke: steelblue;*/
+      stroke-width: 2;
+      fill: none;
+    }
+
+    #graph .axis path,
+    #graph .axis line {
+      fill: none;
+      stroke: grey;
+      stroke-width: 1;
+      shape-rendering: crispEdges;
+    }
+  </style>
 </head>
 
 <body>
-  <div id ="mapcontainer"  class="container-fluid">
-    <div class="row mt-5">
-      <div class="col-4">
-        LOGO
-      </div>
-      <div class="col-8">
-        <div class="row justify-content-end">
-          <div class="col-auto">
-            ¿Qué medimos?
-          </div>
-          <div class="col-auto">
-            ¿Cómo?
-          </div>
-          <div class="col-auto">
-            Conviertete en un nodo
-          </div>
-          <div class="col-auto">
-            Descargas
-          </div>
-        </div>
-      </div>
+  <div id="root">    
+    {{> header }}
+    <div id="maincontainer" class="container-fluid">
+      {{{content}}}
     </div>
-    <hr class="main mt-3 mb-5"></hr>
-    <div class="row justify-content-center">
-      <div class="col">
-        <div id="map"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div id="graph"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div id="chart"></div>
-      </div>
-    </div>
+    {{> neighbourhood }}
   </div>
-  <div id="neighbourhoodmapcontainer" class="container-fluid">
-    <div class="row mt-5">
-      <div class="col-4">
-        LOGO
-      </div>
-      <div class="col-8">
-        <div class="row justify-content-end">
-          <div class="col-auto">
-            ¿Qué medimos?
-          </div>
-          <div class="col-auto">
-            ¿Cómo?
-          </div>
-          <div class="col-auto">
-            Conviertete en un nodo
-          </div>
-          <div class="col-auto">
-            Descargas
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr class="main mt-3 mb-5"></hr>
-    <div class="row justify-content-end">
-      <div class="col-1">
-        <i id="back" class="im im-angle-left"></i>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-6">
-        <div id="neighbourhoodmap"></div>
-      </div>
-    </div>
-  </div>
-  <!--<canvas width="800" height="800"></canvas>-->
-  <!--<script async src="static/index.bundle.js"></script>-->
-  {{{content}}}
-
-  <!--<div id="root"></div>-->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </body>
+
 </html>

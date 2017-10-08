@@ -13,14 +13,13 @@ var config = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        use: {
+        use: [{
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: ['env','react']
           }
         }
-        /*use: ["source-map-loader"],
-        enforce: "pre"*/
+        ]
       }
     ]
   }

@@ -5,7 +5,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
 var uglify = require('gulp-uglify');
 var path = require('path');
-var nodemon = require('nodemon');
+var nodemon = require('gulp-nodemon');
 //var babel = require("gulp-babel");
 var webpack= require('webpack-stream');
 
@@ -80,9 +80,10 @@ gulp.task('webpack',['dist'],function() {
 gulp.task('start',['webpack'],function() {
   nodemon({
     script: path.join(SERVER_DIR,'index.js'),
+    watch: 'src',
     ext: 'js css html',
     env: {'NODE_ENV': 'development'},
-    tasks: ['']
+    tasks: ['webpack']
   }).on('restart', function() {
       console.log('server restarted!');
   });
