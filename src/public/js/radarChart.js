@@ -1,0 +1,183 @@
+// Chart
+import * as d3 from "d3";
+import { EventAware } from './eventAware';
+
+export class RadarChart extends EventAware {
+  constructor(elem) {
+    super(elem);
+    this.margin = { top: 20, right: 20, bottom: 20, left: 20 };
+    this.width = 600 - this.margin.left - this.margin.right;
+    this.height = 270 - this.margin.top - this.margin.bottom;
+    this.levels = 3; //How many levels or inner circles should there be drawn
+    this.color = d3.scaleOrdinal(d3.schemeCategory10);
+    this.opacityArea = 0.35; //The opacity of the area of the blob
+    this.radius = Math.min(this.width / 2, this.height / 2);
+    this.Format = d3.format('%');
+
+  }
+
+  createCanvas() {
+    var totalWidth = this.width + this.margin.left + this.margin.right,
+      totalHeight = this.height + this.margin.top + this.margin.bottom,
+      transform = "translate(" + (this.width / 2 + this.margin.left) + "," + (this.height / 2 + this.margin.top) + ")";
+    return d3.select(this._elem).append("svg")
+      .attr("width", totalWidth)
+      .attr("height", totalHeight)
+      .attr("class", "radarchart")
+      .append("g")
+      .attr("transform", transform);
+  }
+
+  addGlow(svg) {
+    svg.append('defs')
+      .append('filter')
+      .attr('id', 'glow')
+      .append('feGaussianBlur')
+      .attr('stdDeviation', '2.5')
+      .attr('result', 'coloredBlur')
+      .append('feMerge')
+      .append('feMergeNode')
+      .attr('in', 'coloredBlur')
+      .append('feMergeNode')
+      .attr('in', 'SourceGraphic');
+  }
+
+  createLine(r, a) {
+    return d3.radialLine()
+      .radius(function(d) { return r(d.value); })
+      .angle(function(d, i) { return i * a; })
+      .curve(d3.curveCardinalClosed);
+  }
+
+  mouseover(e) {
+    //Dim all blobs
+    d3.selectAll(".radarArea")
+      .transition().duration(200)
+      .style("fill-opacity", 0.1);
+    //Bring back the hovered over blob
+    e.transition().duration(200)
+    .style("fill-opacity", 0.7);
+  }
+
+  mouseout() {
+    //Bring back all blobs
+    d3.selectAll(".radarArea")
+      .transition().duration(200)
+      .style("fill-opacity", this.opacityArea);
+  }
+
+  wrap(text, width) {
+
+    text.each(function() {
+      var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.4, // ems
+        y = text.attr("y"),
+        x = text.attr("x"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+
+      while (word = words.pop()) {
+        line.push(word);
+        tspan.text(line.join(" "));
+        if (tspan.node().getComputedTextLength() > width) {
+          line.pop();
+          tspan.text(line.join(" "));
+          line = [word];
+          tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+        }
+      }
+    });
+  }
+
+  draw(data) {
+    var axisNames = (data[0].map(function(i, j) { return i.axis })), //Names of each axis
+      self = this,
+      maxValue = d3.max(data, function(i) { return d3.max(i.map(function(o) { return o.value; }))}), //What is the value that the biggest circle will represent
+      rScale = d3.scaleLinear().range([0, this.radius]).domain([0, maxValue]),
+      angleSlice = Math.PI * 2 / axisNames.length;
+    //Initiate the radar chart SVG
+    var chartg = this.createCanvas();
+    //Filter for the outside glow
+    this.addGlow(chartg);
+    var axisGrid = chartg.append("g").attr("class", "axisWrapper");
+
+    axisGrid.selectAll(".levels")
+      .data(d3.range(1, (this.levels + 1)).reverse())
+      .enter()
+      .append("circle")
+      .attr("class", "gridCircle")
+      .attr("r", (d, i) => this.radius / this.levels * d)
+      .style("fill", "#CDCDCD")
+      .style("stroke", "#CDCDCD")
+      .style("fill-opacity", 0.1)
+      .style("filter", "url(#glow)");
+
+    axisGrid.selectAll(".axisLabel")
+      .data(d3.range(1, (this.levels + 1)).reverse())
+      .enter().append("text")
+      .attr("class", "axisLabel")
+      .attr("x", 4)
+      .attr("y", (d) => -d * this.radius / this.levels)
+      .attr("dy", "0.4em")
+      .style("font-size", "10px")
+      .attr("fill", "#737373")
+      .text((d, i) => this.Format(maxValue * d / this.levels));
+
+    var axis = axisGrid.selectAll(".axis")
+      .data(axisNames)
+      .enter()
+      .append("g")
+      .attr("class", "axis");
+    //Append the lines
+    axis.append("line")
+      .attr("x1", 0)
+      .attr("y1", 0)
+      .attr("x2", (d, i) => rScale(maxValue * 1.1) * Math.cos(angleSlice * i - Math.PI / 2))
+      .attr("y2", (d, i) => rScale(maxValue * 1.1) * Math.sin(angleSlice * i - Math.PI / 2))
+      .attr("class", "line")
+      .style("stroke", "white")
+      .style("stroke-width", "2px");
+
+    //Append the labels at each axis
+    axis.append("text")
+      .attr("class", "legend")
+      .style("font-size", "11px")
+      .attr("text-anchor", "middle")
+      .attr("dy", "0.35em")
+      .attr("x", (d, i) => rScale(maxValue * 1.25) * Math.cos(angleSlice * i - Math.PI / 2))
+      .attr("y", (d, i) => rScale(maxValue * 1.25) * Math.sin(angleSlice * i - Math.PI / 2))
+      .text((d) => d)
+      .call(this.wrap, 60);
+
+    //The radial line function
+    var radarLine = this.createLine(rScale, angleSlice);
+    var blobWrapper = chartg.selectAll(".radarWrapper")
+      .data(data)
+      .enter().append("g")
+      .attr("class", "radarWrapper");
+
+    //Append the backgrounds
+    blobWrapper
+      .append("path")
+      .attr("class", "radarArea")
+      .attr("d", (d, i) => radarLine(d))
+      .style("fill", (d, i) => this.color(i))
+      .style("fill-opacity", this.opacityArea)
+      .on('mouseover', function(d, i) { self.mouseover(d3.select(this)); })
+      .on('mouseout', () => this.mouseout());
+
+    //Create the outlines
+    blobWrapper.append("path")
+      .attr("class", "radarStroke")
+      .attr("d", (d, i) => radarLine(d))
+      .style("stroke-width", "1px")
+      .style("stroke", (d, i) => this.color(i))
+      .style("fill", "none")
+      .style("filter", "url(#glow)");
+  }
+
+}
