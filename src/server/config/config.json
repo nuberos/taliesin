@@ -1,0 +1,16 @@
+{
+  "geojson": "madrid.json",
+  "clients": [{
+    "name": "airQuality",
+    "type": {
+      "$filter": "env",
+      "development": "file",
+      "$default": "url"
+    },
+    "url": {
+      "$filter": "env",
+      "development": "http://dev.todefineservice.org",
+      "$default": "http://todefineservice.org"
+    }
+  }]
+}

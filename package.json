@@ -29,6 +29,7 @@
   "homepage": "https://github.com/nuberos/taliesin",
   "dependencies": {
     "babel-loader": "^7.1.2",
+    "confidence": "^3.0.2",
     "d3": "^4.10.0",
     "handlebars": "^4.0.10",
     "hapi": "^16.5.2",

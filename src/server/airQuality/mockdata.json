@@ -1,0 +1,586 @@
+{
+  "statisticsData": [
+    [{
+        "name": "Centro",
+        "value": 0.22
+      },
+      {
+        "name": "Arganzuela",
+        "value": 0.28
+      },
+      {
+        "name": "Retiro",
+        "value": 0.29
+      },
+      {
+        "name": "Salamanca",
+        "value": 0.17
+      },
+      {
+        "name": "Chamartin",
+        "value": 0.22
+      },
+      {
+        "name": "Tetuan",
+        "value": 0.02
+      },
+      {
+        "name": "Chamberi",
+        "value": 0.21
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "value": 0.50
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "value": 0.50
+      },
+      {
+        "name": "Latina",
+        "value": 0.50
+      },
+      {
+        "name": "Carabanchel",
+        "value": 0.50
+      },
+      {
+        "name": "Usera",
+        "value": 0.50
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "value": 0.50
+      },
+      {
+        "name": "Moratalaz",
+        "value": 0.50
+      },
+      {
+        "name": "Ciudad Lineal",
+        "value": 0.50
+      },
+      {
+        "name": "Hortaleza",
+        "value": 0.50
+      },
+      {
+        "name": "Villaverde",
+        "value": 0.50
+      },
+      {
+        "name": "Villa de Vallecas",
+        "value": 0.50
+      },
+      {
+        "name": "Vicalvaro",
+        "value": 0.50
+      },
+      {
+        "name": "San Blas",
+        "value": 0.50
+      },
+      {
+        "name": "Barajas",
+        "value": 0.50
+      }
+    ],
+    [{
+        "name": "Centro",
+        "value": 0.50
+      },
+      {
+        "name": "Arganzuela",
+        "value": 0.12
+      },
+      {
+        "name": "Retiro",
+        "value": 0.78
+      },
+      {
+        "name": "Salamanca",
+        "value": 0.09
+      },
+      {
+        "name": "Chamartin",
+        "value": 0.89
+      },
+      {
+        "name": "Tetuan",
+        "value": 0.04
+      },
+      {
+        "name": "Chamberi",
+        "value": 0.71
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "value": 0.60
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "value": 0.33
+      },
+      {
+        "name": "Latina",
+        "value": 0.67
+      },
+      {
+        "name": "Carabanchel",
+        "value": 0.51
+      },
+      {
+        "name": "Usera",
+        "value": 0.24
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "value": 0.65
+      },
+      {
+        "name": "Moratalaz",
+        "value": 0.01
+      },
+      {
+        "name": "Ciudad Lineal",
+        "value": 0.89
+      },
+      {
+        "name": "Hortaleza",
+        "value": 0.67
+      },
+      {
+        "name": "Villaverde",
+        "value": 0.21
+      },
+      {
+        "name": "Villa de Vallecas",
+        "value": 0.75
+      },
+      {
+        "name": "Vicalvaro",
+        "value": 0.40
+      },
+      {
+        "name": "San Blas",
+        "value": 0.20
+      },
+      {
+        "name": "Barajas",
+        "value": 0.67
+      }
+    ],
+    [{
+        "name": "Centro",
+        "value": 0.20
+      },
+      {
+        "name": "Arganzuela",
+        "value": 0.22
+      },
+      {
+        "name": "Retiro",
+        "value": 0.19
+      },
+      {
+        "name": "Salamanca",
+        "value": 0.46
+      },
+      {
+        "name": "Chamartin",
+        "value": 0.45
+      },
+      {
+        "name": "Tetuan",
+        "value": 0.92
+      },
+      {
+        "name": "Chamberi",
+        "value": 0.01
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "value": 0.25
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "value": 0.60
+      },
+      {
+        "name": "Latina",
+        "value": 0.10
+      },
+      {
+        "name": "Carabanchel",
+        "value": 0.90
+      },
+      {
+        "name": "Usera",
+        "value": 0.02
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "value": 0.04
+      },
+      {
+        "name": "Moratalaz",
+        "value": 0.25
+      },
+      {
+        "name": "Ciudad Lineal",
+        "value": 0.75
+      },
+      {
+        "name": "Hortaleza",
+        "value": 0.12
+      },
+      {
+        "name": "Villaverde",
+        "value": 0.55
+      },
+      {
+        "name": "Villa de Vallecas",
+        "value": 0.25
+      },
+      {
+        "name": "Vicalvaro",
+        "value": 0.90
+      },
+      {
+        "name": "San Blas",
+        "value": 0.40
+      },
+      {
+        "name": "Barajas",
+        "value": 0.65
+      }
+    ]
+  ],
+  "temporalEvolution": [{
+      "name": "Centro",
+      "date": "13 01 2017",
+      "avg": 28
+    },
+    {
+      "name": "Centro",
+      "date": "14 01 2017",
+      "avg": 20
+    },
+    {
+      "name": "Centro",
+      "date": "15 01 2017",
+      "avg": 23
+    },
+    {
+      "name": "Centro",
+      "date": "16 01 2017",
+      "avg": 33
+    },
+    {
+      "name": "Centro",
+      "date": "17 01 2017",
+      "avg": 35
+    },
+    {
+      "name": "Centro",
+      "date": "18 01 2017",
+      "avg": 40
+    },
+    {
+      "name": "Centro",
+      "date": "19 01 2017",
+      "avg": 31
+    },
+    {
+      "name": "Centro",
+      "date": "20 01 2017",
+      "avg": 16
+    },
+    {
+      "name": "Centro",
+      "date": "21 01 2017",
+      "avg": 15
+    },
+    {
+      "name": "Centro",
+      "date": "22 01 2017",
+      "avg": 14
+    },
+    {
+      "name": "Centro",
+      "date": "23 01 2017",
+      "avg": 11
+    },
+    {
+      "name": "Chamartin",
+      "date": "13 01 2017",
+      "avg": 5
+    },
+    {
+      "name": "Chamartin",
+      "date": "14 01 2017",
+      "avg": 7
+    },
+    {
+      "name": "Chamartin",
+      "date": "15 01 2017",
+      "avg": 11
+    },
+    {
+      "name": "Chamartin",
+      "date": "16 01 2017",
+      "avg": 14
+    },
+    {
+      "name": "Chamartin",
+      "date": "17 01 2017",
+      "avg": 13
+    },
+    {
+      "name": "Chamartin",
+      "date": "18 01 2017",
+      "avg": 16
+    },
+    {
+      "name": "Chamartin",
+      "date": "19 01 2017",
+      "avg": 18
+    },
+    {
+      "name": "Chamartin",
+      "date": "20 01 2017",
+      "avg": 21
+    },
+    {
+      "name": "Chamartin",
+      "date": "21 01 2017",
+      "avg": 16
+    },
+    {
+      "name": "Chamartin",
+      "date": "22 01 2017",
+      "avg": 14
+    },
+    {
+      "name": "Chamartin",
+      "date": "23 01 2017",
+      "avg": 9
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "13 01 2017",
+      "avg": 41
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "14 01 2017",
+      "avg": 45
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "15 01 2017",
+      "avg": 47
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "16 01 2017",
+      "avg": 48
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "17 01 2017",
+      "avg": 55
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "18 01 2017",
+      "avg": 50
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "19 01 2017",
+      "avg": 47
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "20 01 2017",
+      "avg": 45
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "21 01 2017",
+      "avg": 43
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "22 01 2017",
+      "avg": 40
+    },
+    {
+      "name": "Fuencarral-El Pardo",
+      "date": "23 01 2017",
+      "avg": 39
+    }
+  ],
+  "geoData": {
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.646207, 40.427889]
+        },
+        "properties": {
+          "id": "1",
+          "years": 3,
+          "codbar": "151"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.758443, 40.371427]
+        },
+        "properties": {
+          "id": "2",
+          "years": 2,
+          "codbar": "116"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.716937, 40.437753]
+        },
+        "properties": {
+          "id": "3",
+          "years": 5,
+          "codbar": "071"
+        }
+      },
+
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.810704, 40.474623]
+        },
+        "properties": {
+          "id": "4",
+          "years": 5,
+          "codbar": "081"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.615163, 40.590375]
+        },
+        "properties": {
+          "id": "5",
+          "years": 5,
+          "codbar": "081"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.779378, 40.483555]
+        },
+        "properties": {
+          "id": "6",
+          "years": 5,
+          "codbar": "081"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.885015, 40.568993]
+        },
+        "properties": {
+          "id": "7",
+          "years": 5,
+          "codbar": "081"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.851192, 40.514139]
+        },
+        "properties": {
+          "id": "8",
+          "years": 5,
+          "codbar": "081"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.782488, 40.542402]
+        },
+        "properties": {
+          "id": "9",
+          "years": 5,
+          "codbar": "081"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.710697, 40.407500]
+        },
+        "properties": {
+          "id": "10",
+          "years": 5,
+          "codbar": "012"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.693123, 40.409232]
+        },
+        "properties": {
+          "id": "11",
+          "years": 5,
+          "codbar": "012"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.705547, 40.413774]
+        },
+        "properties": {
+          "id": "12",
+          "years": 5,
+          "codbar": "012"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.702114, 40.405408]
+        },
+        "properties": {
+          "id": "13",
+          "years": 5,
+          "codbar": "012"
+        }
+      }
+    ]
+  }
+}

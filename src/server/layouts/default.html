@@ -93,7 +93,11 @@
 </head>
 
 <body>
-  <div id="root">    
+  <script>      
+      window.__APPCFG__ = {{{clientConfig}}};
+      window.__INITIAL_STATE__ = {{{initialState}}};
+  </script>
+  <div id="root">
     {{> header }}
     <div id="maincontainer" class="container-fluid">
       {{{content}}}

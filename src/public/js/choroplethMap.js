@@ -3,10 +3,10 @@ import * as d3 from "d3";
 import { EventAware } from './eventAware';
 
 export class ChoroplethMap extends EventAware {
-  constructor(container, elem, onClickFn) {
+  constructor(config, container, elem) {
     super(elem);
+    this.config = config;
     this.container = container;
-    this.onClickFn = onClickFn;
     this.margin = { top: 20, right: 20, bottom: 20, left: 20 };
     this.width  = 800 - this.margin.left - this.margin.right;
     this.height = 570 - this.margin.top - this.margin.bottom;
@@ -31,7 +31,7 @@ export class ChoroplethMap extends EventAware {
   }
 
   createCanvas() {
-    var svg = d3.select(this._elem)  
+    var svg = d3.select(this._elem)
       .append("svg")
       .attr("preserveAspectRatio", "xMidYMid")
       .attr("viewBox", "0 0 " + this.width + " " + this.height)
@@ -136,7 +136,7 @@ export class ChoroplethMap extends EventAware {
     var neighbourhoodsg = svg.append("g").attr("id", "neighbourhoods");
     var stationsg = svg.append("g").attr("id", "stations");
 
-    d3.json("static/madrid.json", (error, geojson) => {
+    d3.json(`static/${this.config.geojson}`, (error, geojson) => {
       if (error) {
         throw error;
       }

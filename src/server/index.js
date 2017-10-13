@@ -2,8 +2,13 @@
 
 const Hapi = require('hapi');
 const Path = require('path');
+const Config = require('./config');
+const AirQualityClient = require('./airQuality');
 
 const server = new Hapi.Server();
+const config = Config('/');
+const airQualityClient = new AirQualityClient(config);
+
 server.connection({port: 3000, host: 'localhost'});
 
 server.register([require('vision'),require('inert')], (err) => {
@@ -21,7 +26,8 @@ server.register([require('vision'),require('inert')], (err) => {
       partialsPath: './partials',
       layoutPath: './layouts',
       layout: 'default',
-      helpersPath: './helpers'
+      helpersPath: './helpers',
+      context: config
     });
 
     server.route({
@@ -41,7 +47,10 @@ server.route({
   method: 'GET',
   path: '/',
   handler: function (request, reply) {
-    reply.view('index');
+
+    var data = airQualityClient.load();
+    //console.dir(data);
+    reply.view('index',data);
   }
 });
 
@@ -82,5 +91,5 @@ server.start((err) => {
     console.log(`an error happened while starting hapi server ${err}`);
     throw err;
   }
-  console.log(`Server running at: ${server.info.uri}`);
+  console.log(`Server running at: ${server.info.uri} with config: ${JSON.stringify(config)}`);
 });
