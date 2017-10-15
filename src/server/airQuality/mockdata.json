@@ -256,172 +256,1397 @@
       }
     ]
   ],
-  "temporalEvolution": [{
-      "name": "Centro",
-      "date": "13 01 2017",
-      "avg": 28
-    },
-    {
-      "name": "Centro",
-      "date": "14 01 2017",
-      "avg": 20
-    },
-    {
-      "name": "Centro",
-      "date": "15 01 2017",
-      "avg": 23
-    },
-    {
-      "name": "Centro",
-      "date": "16 01 2017",
-      "avg": 33
-    },
-    {
-      "name": "Centro",
-      "date": "17 01 2017",
-      "avg": 35
-    },
-    {
-      "name": "Centro",
-      "date": "18 01 2017",
-      "avg": 40
-    },
-    {
-      "name": "Centro",
-      "date": "19 01 2017",
-      "avg": 31
-    },
-    {
-      "name": "Centro",
-      "date": "20 01 2017",
-      "avg": 16
-    },
-    {
-      "name": "Centro",
-      "date": "21 01 2017",
-      "avg": 15
-    },
-    {
-      "name": "Centro",
-      "date": "22 01 2017",
-      "avg": 14
-    },
-    {
-      "name": "Centro",
-      "date": "23 01 2017",
-      "avg": 11
-    },
-    {
-      "name": "Chamartin",
-      "date": "13 01 2017",
-      "avg": 5
-    },
-    {
-      "name": "Chamartin",
-      "date": "14 01 2017",
-      "avg": 7
-    },
-    {
-      "name": "Chamartin",
-      "date": "15 01 2017",
-      "avg": 11
-    },
-    {
-      "name": "Chamartin",
-      "date": "16 01 2017",
-      "avg": 14
-    },
-    {
-      "name": "Chamartin",
-      "date": "17 01 2017",
-      "avg": 13
-    },
-    {
-      "name": "Chamartin",
-      "date": "18 01 2017",
-      "avg": 16
-    },
-    {
-      "name": "Chamartin",
-      "date": "19 01 2017",
-      "avg": 18
-    },
-    {
-      "name": "Chamartin",
-      "date": "20 01 2017",
-      "avg": 21
-    },
-    {
-      "name": "Chamartin",
-      "date": "21 01 2017",
-      "avg": 16
-    },
-    {
-      "name": "Chamartin",
-      "date": "22 01 2017",
-      "avg": 14
-    },
-    {
-      "name": "Chamartin",
-      "date": "23 01 2017",
-      "avg": 9
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "13 01 2017",
-      "avg": 41
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "14 01 2017",
-      "avg": 45
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "15 01 2017",
-      "avg": 47
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "16 01 2017",
-      "avg": 48
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "17 01 2017",
-      "avg": 55
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "18 01 2017",
-      "avg": 50
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "19 01 2017",
-      "avg": 47
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "20 01 2017",
-      "avg": 45
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "21 01 2017",
-      "avg": 43
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "22 01 2017",
-      "avg": 40
-    },
-    {
-      "name": "Fuencarral-El Pardo",
-      "date": "23 01 2017",
-      "avg": 39
-    }
-  ],
+  "temporalEvolution": {
+    "keys": ["Centro",
+      "Arganzuela",
+      "Retiro",
+      "Salamanca",
+      "Chamartin",
+      "Tetuan",
+      "Chamberi",
+      "Fuencarral-El Pardo",
+      "Moncloa-Aravaca",
+      "Latina",
+      "Carabanchel",
+      "Usera",
+      "Puenta de Vallecas",
+      "Moratalaz",
+      "Ciudad Lineal",
+      "Hortaleza",
+      "Villaverde",
+      "Villa de Vallecas",
+      "Vicalvaro",
+      "San Blas",
+      "Barajas"
+    ],
+    "values": [
+      {
+        "name": "Centro",
+        "date": "13 01 2017",
+        "avg": 28
+      },
+      {
+        "name": "Arganzuela",
+        "date": "13 01 2017",
+        "avg": 24
+      },
+      {
+        "name": "Retiro",
+        "date": "13 01 2017",
+        "avg": 32
+      },
+      {
+        "name": "Salamanca",
+        "date": "13 01 2017",
+        "avg": 50
+      },
+      {
+        "name": "Chamartin",
+        "date": "13 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Tetuan",
+        "date": "13 01 2017",
+        "avg": 9
+      },
+      {
+        "name": "Chamberi",
+        "date": "13 01 2017",
+        "avg": 15
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "13 01 2017",
+        "avg": 60
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "13 01 2017",
+        "avg": 34
+      },
+      {
+        "name": "Latina",
+        "date": "13 01 2017",
+        "avg": 12
+      },
+      {
+        "name": "Carabanchel",
+        "date": "13 01 2017",
+        "avg": 29
+      },
+      {
+        "name": "Usera",
+        "date": "13 01 2017",
+        "avg": 45
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "13 01 2017",
+        "avg": 98
+      },
+      {
+        "name": "Moratalaz",
+        "date": "13 01 2017",
+        "avg": 65
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "13 01 2017",
+        "avg": 13
+      },
+      {
+        "name": "Hortaleza",
+        "date": "13 01 2017",
+        "avg": 12
+      },
+      {
+        "name": "Villaverde",
+        "date": "13 01 2017",
+        "avg": 78
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "13 01 2017",
+        "avg": 85
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "13 01 2017",
+        "avg": 65
+      },
+      {
+        "name": "San Blas",
+        "date": "13 01 2017",
+        "avg": 20
+      },
+      {
+        "name": "Barajas",
+        "date": "13 01 2017",
+        "avg": 5
+      },
+      {
+        "name": "Centro",
+        "date": "14 01 2017",
+        "avg": 26
+      },
+      {
+        "name": "Arganzuela",
+        "date": "14 01 2017",
+        "avg": 23
+      },
+      {
+        "name": "Retiro",
+        "date": "14 01 2017",
+        "avg": 32
+      },
+      {
+        "name": "Salamanca",
+        "date": "14 01 2017",
+        "avg": 51
+      },
+      {
+        "name": "Chamartin",
+        "date": "14 01 2017",
+        "avg": 20
+      },
+      {
+        "name": "Tetuan",
+        "date": "14 01 2017",
+        "avg": 10
+      },
+      {
+        "name": "Chamberi",
+        "date": "14 01 2017",
+        "avg": 17
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "14 01 2017",
+        "avg": 62
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "14 01 2017",
+        "avg": 35
+      },
+      {
+        "name": "Latina",
+        "date": "14 01 2017",
+        "avg": 12
+      },
+      {
+        "name": "Carabanchel",
+        "date": "14 01 2017",
+        "avg": 27
+      },
+      {
+        "name": "Usera",
+        "date": "14 01 2017",
+        "avg": 44
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "14 01 2017",
+        "avg": 97
+      },
+      {
+        "name": "Moratalaz",
+        "date": "14 01 2017",
+        "avg": 64
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "14 01 2017",
+        "avg": 12
+      },
+      {
+        "name": "Hortaleza",
+        "date": "14 01 2017",
+        "avg": 11
+      },
+      {
+        "name": "Villaverde",
+        "date": "14 01 2017",
+        "avg": 79
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "14 01 2017",
+        "avg": 85
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "14 01 2017",
+        "avg": 66
+      },
+      {
+        "name": "San Blas",
+        "date": "14 01 2017",
+        "avg": 21
+      },
+      {
+        "name": "Barajas",
+        "date": "14 01 2017",
+        "avg": 6
+      },
+      {
+        "name": "Centro",
+        "date": "15 01 2017",
+        "avg": 28
+      },
+      {
+        "name": "Arganzuela",
+        "date": "15 01 2017",
+        "avg": 25
+      },
+      {
+        "name": "Retiro",
+        "date": "15 01 2017",
+        "avg": 34
+      },
+      {
+        "name": "Salamanca",
+        "date": "15 01 2017",
+        "avg": 55
+      },
+      {
+        "name": "Chamartin",
+        "date": "15 01 2017",
+        "avg": 22
+      },
+      {
+        "name": "Tetuan",
+        "date": "15 01 2017",
+        "avg": 13
+      },
+      {
+        "name": "Chamberi",
+        "date": "15 01 2017",
+        "avg": 18
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "15 01 2017",
+        "avg": 64
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "15 01 2017",
+        "avg": 36
+      },
+      {
+        "name": "Latina",
+        "date": "15 01 2017",
+        "avg": 14
+      },
+      {
+        "name": "Carabanchel",
+        "date": "15 01 2017",
+        "avg": 30
+      },
+      {
+        "name": "Usera",
+        "date": "15 01 2017",
+        "avg": 45
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "15 01 2017",
+        "avg": 98
+      },
+      {
+        "name": "Moratalaz",
+        "date": "15 01 2017",
+        "avg": 66
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "15 01 2017",
+        "avg": 14
+      },
+      {
+        "name": "Hortaleza",
+        "date": "15 01 2017",
+        "avg": 13
+      },
+      {
+        "name": "Villaverde",
+        "date": "15 01 2017",
+        "avg": 81
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "15 01 2017",
+        "avg": 89
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "15 01 2017",
+        "avg": 68
+      },
+      {
+        "name": "San Blas",
+        "date": "15 01 2017",
+        "avg": 22
+      },
+      {
+        "name": "Barajas",
+        "date": "15 01 2017",
+        "avg": 9
+      },
+      {
+        "name": "Centro",
+        "date": "16 01 2017",
+        "avg": 29
+      },
+      {
+        "name": "Arganzuela",
+        "date": "16 01 2017",
+        "avg": 27
+      },
+      {
+        "name": "Retiro",
+        "date": "16 01 2017",
+        "avg": 38
+      },
+      {
+        "name": "Salamanca",
+        "date": "16 01 2017",
+        "avg": 56
+      },
+      {
+        "name": "Chamartin",
+        "date": "16 01 2017",
+        "avg": 26
+      },
+      {
+        "name": "Tetuan",
+        "date": "16 01 2017",
+        "avg": 14
+      },
+      {
+        "name": "Chamberi",
+        "date": "16 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "16 01 2017",
+        "avg": 65
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "16 01 2017",
+        "avg": 39
+      },
+      {
+        "name": "Latina",
+        "date": "16 01 2017",
+        "avg": 16
+      },
+      {
+        "name": "Carabanchel",
+        "date": "16 01 2017",
+        "avg": 33
+      },
+      {
+        "name": "Usera",
+        "date": "16 01 2017",
+        "avg": 46
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "16 01 2017",
+        "avg": 99
+      },
+      {
+        "name": "Moratalaz",
+        "date": "16 01 2017",
+        "avg": 69
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "16 01 2017",
+        "avg": 15
+      },
+      {
+        "name": "Hortaleza",
+        "date": "16 01 2017",
+        "avg": 15
+      },
+      {
+        "name": "Villaverde",
+        "date": "16 01 2017",
+        "avg": 82
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "16 01 2017",
+        "avg": 92
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "16 01 2017",
+        "avg": 69
+      },
+      {
+        "name": "San Blas",
+        "date": "16 01 2017",
+        "avg": 25
+      },
+      {
+        "name": "Barajas",
+        "date": "16 01 2017",
+        "avg": 10
+      },
+      {
+        "name": "Centro",
+        "date": "17 01 2017",
+        "avg": 32
+      },
+      {
+        "name": "Arganzuela",
+        "date": "17 01 2017",
+        "avg": 29
+      },
+      {
+        "name": "Retiro",
+        "date": "17 01 2017",
+        "avg": 39
+      },
+      {
+        "name": "Salamanca",
+        "date": "17 01 2017",
+        "avg": 58
+      },
+      {
+        "name": "Chamartin",
+        "date": "17 01 2017",
+        "avg": 27
+      },
+      {
+        "name": "Tetuan",
+        "date": "17 01 2017",
+        "avg": 17
+      },
+      {
+        "name": "Chamberi",
+        "date": "17 01 2017",
+        "avg": 25
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "17 01 2017",
+        "avg": 65
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "17 01 2017",
+        "avg": 41
+      },
+      {
+        "name": "Latina",
+        "date": "17 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Carabanchel",
+        "date": "17 01 2017",
+        "avg": 34
+      },
+      {
+        "name": "Usera",
+        "date": "17 01 2017",
+        "avg": 47
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "17 01 2017",
+        "avg": 101
+      },
+      {
+        "name": "Moratalaz",
+        "date": "17 01 2017",
+        "avg": 69
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "17 01 2017",
+        "avg": 16
+      },
+      {
+        "name": "Hortaleza",
+        "date": "17 01 2017",
+        "avg": 17
+      },
+      {
+        "name": "Villaverde",
+        "date": "17 01 2017",
+        "avg": 83
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "17 01 2017",
+        "avg": 95
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "17 01 2017",
+        "avg": 71
+      },
+      {
+        "name": "San Blas",
+        "date": "17 01 2017",
+        "avg": 26
+      },
+      {
+        "name": "Barajas",
+        "date": "17 01 2017",
+        "avg": 11
+      },
+      {
+        "name": "Centro",
+        "date": "18 01 2017",
+        "avg": 33
+      },
+      {
+        "name": "Arganzuela",
+        "date": "18 01 2017",
+        "avg": 30
+      },
+      {
+        "name": "Retiro",
+        "date": "18 01 2017",
+        "avg": 40
+      },
+      {
+        "name": "Salamanca",
+        "date": "18 01 2017",
+        "avg": 59
+      },
+      {
+        "name": "Chamartin",
+        "date": "18 01 2017",
+        "avg": 28
+      },
+      {
+        "name": "Tetuan",
+        "date": "18 01 2017",
+        "avg": 18
+      },
+      {
+        "name": "Chamberi",
+        "date": "18 01 2017",
+        "avg": 27
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "18 01 2017",
+        "avg": 66
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "18 01 2017",
+        "avg": 44
+      },
+      {
+        "name": "Latina",
+        "date": "18 01 2017",
+        "avg": 21
+      },
+      {
+        "name": "Carabanchel",
+        "date": "18 01 2017",
+        "avg": 35
+      },
+      {
+        "name": "Usera",
+        "date": "18 01 2017",
+        "avg": 48
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "18 01 2017",
+        "avg": 102
+      },
+      {
+        "name": "Moratalaz",
+        "date": "18 01 2017",
+        "avg": 70
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "18 01 2017",
+        "avg": 18
+      },
+      {
+        "name": "Hortaleza",
+        "date": "18 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Villaverde",
+        "date": "18 01 2017",
+        "avg": 84
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "18 01 2017",
+        "avg": 96
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "18 01 2017",
+        "avg": 72
+      },
+      {
+        "name": "San Blas",
+        "date": "18 01 2017",
+        "avg": 27
+      },
+      {
+        "name": "Barajas",
+        "date": "18 01 2017",
+        "avg": 12
+      },
+      {
+        "name": "Centro",
+        "date": "19 01 2017",
+        "avg": 34
+      },
+      {
+        "name": "Arganzuela",
+        "date": "19 01 2017",
+        "avg": 31
+      },
+      {
+        "name": "Retiro",
+        "date": "19 01 2017",
+        "avg": 42
+      },
+      {
+        "name": "Salamanca",
+        "date": "19 01 2017",
+        "avg": 60
+      },
+      {
+        "name": "Chamartin",
+        "date": "19 01 2017",
+        "avg": 29
+      },
+      {
+        "name": "Tetuan",
+        "date": "19 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Chamberi",
+        "date": "19 01 2017",
+        "avg": 28
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "19 01 2017",
+        "avg": 67
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "19 01 2017",
+        "avg": 45
+      },
+      {
+        "name": "Latina",
+        "date": "19 01 2017",
+        "avg": 23
+      },
+      {
+        "name": "Carabanchel",
+        "date": "19 01 2017",
+        "avg": 36
+      },
+      {
+        "name": "Usera",
+        "date": "19 01 2017",
+        "avg": 49
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "19 01 2017",
+        "avg": 103
+      },
+      {
+        "name": "Moratalaz",
+        "date": "19 01 2017",
+        "avg": 71
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "19 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Hortaleza",
+        "date": "19 01 2017",
+        "avg": 21
+      },
+      {
+        "name": "Villaverde",
+        "date": "19 01 2017",
+        "avg": 85
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "19 01 2017",
+        "avg": 97
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "19 01 2017",
+        "avg": 73
+      },
+      {
+        "name": "San Blas",
+        "date": "19 01 2017",
+        "avg": 29
+      },
+      {
+        "name": "Barajas",
+        "date": "19 01 2017",
+        "avg": 13
+      },
+      {
+        "name": "Centro",
+        "date": "20 01 2017",
+        "avg": 40
+      },
+      {
+        "name": "Arganzuela",
+        "date": "20 01 2017",
+        "avg": 38
+      },
+      {
+        "name": "Retiro",
+        "date": "20 01 2017",
+        "avg": 49
+      },
+      {
+        "name": "Salamanca",
+        "date": "20 01 2017",
+        "avg": 69
+      },
+      {
+        "name": "Chamartin",
+        "date": "20 01 2017",
+        "avg": 34
+      },
+      {
+        "name": "Tetuan",
+        "date": "20 01 2017",
+        "avg": 28
+      },
+      {
+        "name": "Chamberi",
+        "date": "20 01 2017",
+        "avg": 41
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "20 01 2017",
+        "avg": 75
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "20 01 2017",
+        "avg": 60
+      },
+      {
+        "name": "Latina",
+        "date": "20 01 2017",
+        "avg": 26
+      },
+      {
+        "name": "Carabanchel",
+        "date": "20 01 2017",
+        "avg": 41
+      },
+      {
+        "name": "Usera",
+        "date": "20 01 2017",
+        "avg": 53
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "20 01 2017",
+        "avg": 107
+      },
+      {
+        "name": "Moratalaz",
+        "date": "20 01 2017",
+        "avg": 75
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "20 01 2017",
+        "avg": 25
+      },
+      {
+        "name": "Hortaleza",
+        "date": "20 01 2017",
+        "avg": 29
+      },
+      {
+        "name": "Villaverde",
+        "date": "20 01 2017",
+        "avg": 99
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "20 01 2017",
+        "avg": 107
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "20 01 2017",
+        "avg": 79
+      },
+      {
+        "name": "San Blas",
+        "date": "20 01 2017",
+        "avg": 22
+      },
+      {
+        "name": "Barajas",
+        "date": "20 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Centro",
+        "date": "21 01 2017",
+        "avg": 39
+      },
+      {
+        "name": "Arganzuela",
+        "date": "21 01 2017",
+        "avg": 37
+      },
+      {
+        "name": "Retiro",
+        "date": "21 01 2017",
+        "avg": 49
+      },
+      {
+        "name": "Salamanca",
+        "date": "21 01 2017",
+        "avg": 66
+      },
+      {
+        "name": "Chamartin",
+        "date": "21 01 2017",
+        "avg": 32
+      },
+      {
+        "name": "Tetuan",
+        "date": "21 01 2017",
+        "avg": 29
+      },
+      {
+        "name": "Chamberi",
+        "date": "21 01 2017",
+        "avg": 40
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "21 01 2017",
+        "avg": 74
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "21 01 2017",
+        "avg": 57
+      },
+      {
+        "name": "Latina",
+        "date": "21 01 2017",
+        "avg": 25
+      },
+      {
+        "name": "Carabanchel",
+        "date": "21 01 2017",
+        "avg": 44
+      },
+      {
+        "name": "Usera",
+        "date": "21 01 2017",
+        "avg": 51
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "21 01 2017",
+        "avg": 106
+      },
+      {
+        "name": "Moratalaz",
+        "date": "21 01 2017",
+        "avg": 76
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "21 01 2017",
+        "avg": 25
+      },
+      {
+        "name": "Hortaleza",
+        "date": "21 01 2017",
+        "avg": 27
+      },
+      {
+        "name": "Villaverde",
+        "date": "21 01 2017",
+        "avg": 98
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "21 01 2017",
+        "avg": 105
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "21 01 2017",
+        "avg": 78
+      },
+      {
+        "name": "San Blas",
+        "date": "21 01 2017",
+        "avg": 21
+      },
+      {
+        "name": "Barajas",
+        "date": "21 01 2017",
+        "avg": 18
+      },
+      {
+        "name": "Centro",
+        "date": "22 01 2017",
+        "avg": 36
+      },
+      {
+        "name": "Arganzuela",
+        "date": "22 01 2017",
+        "avg": 36
+      },
+      {
+        "name": "Retiro",
+        "date": "22 01 2017",
+        "avg": 44
+      },
+      {
+        "name": "Salamanca",
+        "date": "22 01 2017",
+        "avg": 65
+      },
+      {
+        "name": "Chamartin",
+        "date": "22 01 2017",
+        "avg": 31
+      },
+      {
+        "name": "Tetuan",
+        "date": "22 01 2017",
+        "avg": 28
+      },
+      {
+        "name": "Chamberi",
+        "date": "22 01 2017",
+        "avg": 39
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "22 01 2017",
+        "avg": 73
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "22 01 2017",
+        "avg": 56
+      },
+      {
+        "name": "Latina",
+        "date": "22 01 2017",
+        "avg": 24
+      },
+      {
+        "name": "Carabanchel",
+        "date": "22 01 2017",
+        "avg": 44
+      },
+      {
+        "name": "Usera",
+        "date": "22 01 2017",
+        "avg": 50
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "22 01 2017",
+        "avg": 103
+      },
+      {
+        "name": "Moratalaz",
+        "date": "22 01 2017",
+        "avg": 71
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "22 01 2017",
+        "avg": 25
+      },
+      {
+        "name": "Hortaleza",
+        "date": "22 01 2017",
+        "avg": 21
+      },
+      {
+        "name": "Villaverde",
+        "date": "22 01 2017",
+        "avg": 97
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "22 01 2017",
+        "avg": 101
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "22 01 2017",
+        "avg": 77
+      },
+      {
+        "name": "San Blas",
+        "date": "22 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Barajas",
+        "date": "22 01 2017",
+        "avg": 15
+      },
+      {
+        "name": "Centro",
+        "date": "23 01 2017",
+        "avg": 35
+      },
+      {
+        "name": "Arganzuela",
+        "date": "23 01 2017",
+        "avg": 35
+      },
+      {
+        "name": "Retiro",
+        "date": "23 01 2017",
+        "avg": 42
+      },
+      {
+        "name": "Salamanca",
+        "date": "23 01 2017",
+        "avg": 65
+      },
+      {
+        "name": "Chamartin",
+        "date": "23 01 2017",
+        "avg": 28
+      },
+      {
+        "name": "Tetuan",
+        "date": "23 01 2017",
+        "avg": 28
+      },
+      {
+        "name": "Chamberi",
+        "date": "23 01 2017",
+        "avg": 38
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "23 01 2017",
+        "avg": 71
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "23 01 2017",
+        "avg": 55
+      },
+      {
+        "name": "Latina",
+        "date": "23 01 2017",
+        "avg": 22
+      },
+      {
+        "name": "Carabanchel",
+        "date": "23 01 2017",
+        "avg": 41
+      },
+      {
+        "name": "Usera",
+        "date": "23 01 2017",
+        "avg": 50
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "23 01 2017",
+        "avg": 101
+      },
+      {
+        "name": "Moratalaz",
+        "date": "23 01 2017",
+        "avg": 67
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "23 01 2017",
+        "avg": 21
+      },
+      {
+        "name": "Hortaleza",
+        "date": "23 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Villaverde",
+        "date": "23 01 2017",
+        "avg": 95
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "23 01 2017",
+        "avg": 98
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "23 01 2017",
+        "avg": 76
+      },
+      {
+        "name": "San Blas",
+        "date": "23 01 2017",
+        "avg": 17
+      },
+      {
+        "name": "Barajas",
+        "date": "23 01 2017",
+        "avg": 11
+      },
+      {
+        "name": "Centro",
+        "date": "24 01 2017",
+        "avg": 34
+      },
+      {
+        "name": "Arganzuela",
+        "date": "24 01 2017",
+        "avg": 34
+      },
+      {
+        "name": "Retiro",
+        "date": "24 01 2017",
+        "avg": 42
+      },
+      {
+        "name": "Salamanca",
+        "date": "24 01 2017",
+        "avg": 61
+      },
+      {
+        "name": "Chamartin",
+        "date": "24 01 2017",
+        "avg": 27
+      },
+      {
+        "name": "Tetuan",
+        "date": "24 01 2017",
+        "avg": 27
+      },
+      {
+        "name": "Chamberi",
+        "date": "24 01 2017",
+        "avg": 36
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "24 01 2017",
+        "avg": 67
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "24 01 2017",
+        "avg": 53
+      },
+      {
+        "name": "Latina",
+        "date": "24 01 2017",
+        "avg": 21
+      },
+      {
+        "name": "Carabanchel",
+        "date": "24 01 2017",
+        "avg": 44
+      },
+      {
+        "name": "Usera",
+        "date": "24 01 2017",
+        "avg": 51
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "24 01 2017",
+        "avg": 103
+      },
+      {
+        "name": "Moratalaz",
+        "date": "24 01 2017",
+        "avg": 69
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "24 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Hortaleza",
+        "date": "24 01 2017",
+        "avg": 17
+      },
+      {
+        "name": "Villaverde",
+        "date": "24 01 2017",
+        "avg": 91
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "24 01 2017",
+        "avg": 95
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "24 01 2017",
+        "avg": 76
+      },
+      {
+        "name": "San Blas",
+        "date": "24 01 2017",
+        "avg": 11
+      },
+      {
+        "name": "Barajas",
+        "date": "24 01 2017",
+        "avg": 14
+      },
+      {
+        "name": "Centro",
+        "date": "25 01 2017",
+        "avg": 31
+      },
+      {
+        "name": "Arganzuela",
+        "date": "25 01 2017",
+        "avg": 33
+      },
+      {
+        "name": "Retiro",
+        "date": "25 01 2017",
+        "avg": 46
+      },
+      {
+        "name": "Salamanca",
+        "date": "25 01 2017",
+        "avg": 56
+      },
+      {
+        "name": "Chamartin",
+        "date": "25 01 2017",
+        "avg": 27
+      },
+      {
+        "name": "Tetuan",
+        "date": "25 01 2017",
+        "avg": 24
+      },
+      {
+        "name": "Chamberi",
+        "date": "25 01 2017",
+        "avg": 35
+      },
+      {
+        "name": "Fuencarral-El Pardo",
+        "date": "25 01 2017",
+        "avg": 65
+      },
+      {
+        "name": "Moncloa-Aravaca",
+        "date": "25 01 2017",
+        "avg": 51
+      },
+      {
+        "name": "Latina",
+        "date": "25 01 2017",
+        "avg": 19
+      },
+      {
+        "name": "Carabanchel",
+        "date": "25 01 2017",
+        "avg": 43
+      },
+      {
+        "name": "Usera",
+        "date": "25 01 2017",
+        "avg": 52
+      },
+      {
+        "name": "Puenta de Vallecas",
+        "date": "25 01 2017",
+        "avg": 101
+      },
+      {
+        "name": "Moratalaz",
+        "date": "25 01 2017",
+        "avg": 66
+      },
+      {
+        "name": "Ciudad Lineal",
+        "date": "25 01 2017",
+        "avg": 14
+      },
+      {
+        "name": "Hortaleza",
+        "date": "25 01 2017",
+        "avg": 14
+      },
+      {
+        "name": "Villaverde",
+        "date": "25 01 2017",
+        "avg": 87
+      },
+      {
+        "name": "Villa de Vallecas",
+        "date": "25 01 2017",
+        "avg": 91
+      },
+      {
+        "name": "Vicalvaro",
+        "date": "25 01 2017",
+        "avg": 74
+      },
+      {
+        "name": "San Blas",
+        "date": "25 01 2017",
+        "avg": 15
+      },
+      {
+        "name": "Barajas",
+        "date": "25 01 2017",
+        "avg": 13
+      }
+    ]
+  },
   "geoData": {
     "type": "FeatureCollection",
     "features": [{
