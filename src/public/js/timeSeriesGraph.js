@@ -6,13 +6,13 @@ export class TimeSeriesGraph extends EventAware {
     super(elem);
     this.color = d3.scaleOrdinal(d3.schemeCategory10);
     this.margin = {
-      top: 30,
+      top: 0,
       right: 20,
       bottom: 30,
       left: 50
     };
     this.width = 700 - this.margin.left - this.margin.right;
-    this.height = 450 - this.margin.top - this.margin.bottom;
+    this.height = 400 - this.margin.top - this.margin.bottom;
     this.dateFormat = d3.timeFormat("%d %m %Y");
     this.x = d3.scaleTime().range([0, this.width]);
     this.y = d3.scaleLinear().range([this.height, 0]);

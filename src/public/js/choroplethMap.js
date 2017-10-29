@@ -7,9 +7,9 @@ export class ChoroplethMap extends EventAware {
     super(elem);
     this.config = config;
     this.container = container;
-    this.margin = { top: 20, right: 20, bottom: 20, left: 20 };
-    this.width  = 800 - this.margin.left - this.margin.right;
-    this.height = 570 - this.margin.top - this.margin.bottom;
+    this.margin = { top: 0, right: 20, bottom: 20, left: 20 };
+    this.width  = 700 - this.margin.left - this.margin.right;
+    this.height = 670 - this.margin.top - this.margin.bottom;
     this.domainScale = [50, 150, 350, 750, 1450, 2850, 5650, 11250, 22450, 44850, 89650, 179250];
     this.legendDomainScale = [0, 50, 150, 350, 750, 1450, 2850, 5650, 11250, 22450, 44850, 89650, 179250];
     this.legendLabels = ["< 50", "50+", "150+", "350+", "750+", "1450+", "2850+", "5650+", "11250+", "22450+", "44850+", "89650+", "> 179250 "];
