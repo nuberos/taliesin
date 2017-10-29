@@ -1,6 +1,6 @@
 //longitude and latitude coords
 import * as d3 from "d3";
-import { EventAware } from './eventAware';
+import { Events, EventAware } from './eventAware';
 
 export class ChoroplethMap extends EventAware {
   constructor(config, container, elem) {
@@ -70,7 +70,15 @@ export class ChoroplethMap extends EventAware {
     d.centroid = d3.geoCentroid(d);
     this.container.classList.remove("d-block");
     this.container.classList.add("d-none");
-    this.fire(d);
+    this.fire(Events.CLICK,d);
+  }
+
+  mouseover(d) {
+      this.fire(Events.MOUSEOVER,d.properties.district);
+  }
+
+  mouseout(d) {
+      this.fire(Events.MOUSEOUT,d.properties.district);
   }
 
   appendNeighbourhoods(svg, geojson, data) {
@@ -90,7 +98,9 @@ export class ChoroplethMap extends EventAware {
         return this.colors(num);
       })
       .attr("opacity", "0.7")
-      .on('click', (d)=> this.onClick(d));
+      .on('click', (d)=> this.onClick(d))
+      .on('mouseover', (d)=> this.mouseover(d))
+      .on('mouseout', (d)=> this.mouseout(d));
   }
 
   appendStations(svg, geojson, data) {

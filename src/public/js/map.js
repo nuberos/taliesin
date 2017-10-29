@@ -1,5 +1,5 @@
 import L from 'leaflet';
-import { EventAware } from './eventAware';
+import { Events, EventAware } from './eventAware';
 
 export class Map extends EventAware {
   constructor(elem, container) {
@@ -40,7 +40,7 @@ export class Map extends EventAware {
       }
       this.map.fitBounds(geoJsonLayer.getBounds(), {
         maxZoom: 15
-      });      
+      });
     } catch (err) {
 
       console.error(err);

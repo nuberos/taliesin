@@ -1,7 +1,5 @@
 import * as d3 from "d3";
-import {
-  EventAware
-} from './eventAware';
+import { Events, EventAware } from './eventAware';
 
 export class TimeSeriesGraph extends EventAware {
   constructor(elem) {
@@ -13,9 +11,13 @@ export class TimeSeriesGraph extends EventAware {
       bottom: 30,
       left: 50
     };
-    this.width = 800 - this.margin.left - this.margin.right;
-    this.height = 550 - this.margin.top - this.margin.bottom;
+    this.width = 700 - this.margin.left - this.margin.right;
+    this.height = 450 - this.margin.top - this.margin.bottom;
     this.dateFormat = d3.timeFormat("%d %m %Y");
+    this.x = d3.scaleTime().range([0, this.width]);
+    this.y = d3.scaleLinear().range([this.height, 0]);
+    this.xAxis = d3.axisBottom(this.x).ticks(5);
+    this.yAxis = d3.axisLeft(this.y).ticks(5);
   }
 
   parseDate(date) {
@@ -33,6 +35,24 @@ export class TimeSeriesGraph extends EventAware {
         "translate(" + this.margin.left + "," + this.margin.top + ")");
   }
 
+  dataNest() {
+    return d3.nest()
+    .key(function(d) {
+      return d.district;
+    })
+    .entries(this.data.values);
+  }
+
+  setDomain() {
+    // Scale the range of the dataa
+    this.x.domain(d3.extent(this.data.values, function(d) {
+      return d.date;
+    }));
+    this.y.domain([0,d3.max(this.data.values, function(d) {
+      return d.avg;
+    })]);
+  }
+
   formatData(data) {
     // Get the data
     data.forEach(function(d) {
@@ -44,68 +64,81 @@ export class TimeSeriesGraph extends EventAware {
   createLine(x, y) {
     // Define the line
     return d3.line()
-      .x(function(d) {
-        return x(d.date);
-      })
-      .y(function(d) {
-        return y(d.avg);
-      });
+      .x((d)=> this.x(d.date))
+      .y((d)=> this.y(d.avg));
   }
 
-  createLegend(svg, data) {
+  opacity(d1,key) {
+    var opacity = 0.15;
+    if(!key || d1.key === key) {
+        opacity = 1;
+    }
+    return opacity;
+  }
+
+  handleMouseOver(key) { // Add interactivity
+    // remove contents of svg
+    this.svg.selectAll("path").remove();
+    this.updateGraph(key);
+  }
+
+  highlight(d) {
+    this.handleMouseOver(d);
+  }
+
+  restore(d) {
+    this.updateGraph();
+  }
+
+  createLegend() {
     var legendWidth = 180,
-    fontsz = 11,
-    texth = fontsz+1,
-    rl = 11,
-    texth = fontsz+1,
-    legendHeight = data.keys.length*texth + 30;
-    var legend = svg.append("g")
+      fontsz = 11,
+      texth = fontsz + 1,
+      rl = 11,
+      texth = fontsz + 1,
+      legendHeight = this.data.keys.length * texth + 30;
+    var legend = this.svg.append("g")
       .attr("class", "legendContainer")
       .style("fill", "white")
-      .style("fill-opacity","0.85")
-      .attr("width",legendWidth)
-      .attr("height",legendHeight)
+      .style("fill-opacity", "0.85")
+      .attr("width", legendWidth)
+      .attr("height", legendHeight)
       .attr("transform", "translate(" + (this.width - legendWidth) + ",0)");
 
-      legend.append("rect")
-      .attr("class","legendRect")
-      .attr("x","0")
-      .attr("y","0")
-      .attr("width",legendWidth)
-      .attr("height",legendHeight)
-      .attr("fill","white")
-      .style("fill-opacity","0.85");
-      //.style("stroke", "#737373");
+    legend.append("rect")
+      .attr("class", "legendRect")
+      .attr("x", "0")
+      .attr("y", "0")
+      .attr("width", legendWidth)
+      .attr("height", legendHeight)
+      .attr("fill", "white")
+      .style("fill-opacity", "0.85");
 
-      /*legend.selectAll("text")
-      .data(data.keys)
-      .enter()
-      .append("text")
-      .attr("class", "legendLabels")
-      .style("fill","black")
-      .text(function(d) { return d})
-      .attr("font-size",`${fontsz}px`)
-      .attr("x","10")
-      .attr("y",function(d,i) { return 10 + (i+1)*texth});*/
-
-
-      var legendElement = legend.selectAll("g")
-        .data(data.keys)
-        .enter().append("g")
-        .attr("class", "legend");
-      legendElement.append("rect")
-        .attr("x", 10)
-        .attr("y", function(d,i) { return (i+1)*texth})
-        .attr("width", rl)
-        .attr("height", rl)
-        .style("fill", (d) => this.color(d));
-        //.style("opacity", 0.8);
-      legendElement.append("text")
-        .attr("x", 10 + rl + 10)
-        .attr("y", function(d,i) { return 10 + (i+1)*texth})
-        .text(function(d) { return d})
-        .attr("font-size",`${fontsz}px`)
-        .style("fill", "black");
+    var legendElement = legend.selectAll("g")
+      .data(this.data.keys)
+      .enter().append("g")
+      .attr("class", "legend");
+    legendElement.append("rect")
+      .attr("x", 10)
+      .attr("y", function(d, i) {
+        return (i + 1) * texth
+      })
+      .attr("width", rl)
+      .attr("height", rl)
+      .style("fill", (d) => this.color(d.district));
+    //.style("opacity", 0.8);
+    legendElement.append("text")
+      .attr("x", 10 + rl + 10)
+      .attr("y", function(d, i) {
+        return 10 + (i + 1) * texth
+      })
+      .text(function(d) {
+        return d.name
+      })
+      .attr("font-size", `${fontsz}px`)
+      .style("fill", "black")
+      .on("mouseover", (d) => this.handleMouseOver(d.district))
+      .on("mouseout", (d) => this.updateGraph());
 
   }
   lineColor(d) {
@@ -114,46 +147,38 @@ export class TimeSeriesGraph extends EventAware {
   //timeSeries.districts
   draw(data) {
     this.formatData(data.values);
-    //Ranges
-    var x = d3.scaleTime().range([0, this.width]);
-    var y = d3.scaleLinear().range([this.height, 0]);
-    // Define the axes
-    var xAxis = d3.axisBottom(x).ticks(5);
-    var yAxis = d3.axisLeft(y).ticks(5);
-    // Scale the range of the dataa
-    x.domain(d3.extent(data.values, function(d) {
-      return d.date;
-    }));
-    y.domain([0, d3.max(data.values, function(d) {
-      return d.avg;
-    })]);
+    this.data = data;
     // Adds the svg canvas
-    var graphSvg = this.createCanvas();
+    this.svg = this.createCanvas();
+    this.updateGraph();
+  }
+
+  updateGraph(key) {
+    // Scale the range of the data
+    this.setDomain();
     //create the line function
-    var line = this.createLine(x, y);
+    var line = this.createLine(this.x,this.y);
     // Nest the entries by symbol
-    var dataNest = d3.nest()
-      .key(function(d) {
-        return d.name;
-      })
-      .entries(data.values);
+    var dataNest = this.dataNest();
     // Loop through each symbol / key
     dataNest.forEach(function(d) {
-      graphSvg.append("path")
+      this.svg.append("path")
         .attr("class", "line")
+        .attr("id", (d,i)=> `line-${i}`)
         .style("stroke", this.lineColor(d))
+        .style("stroke-opacity", this.opacity(d,key))
         .attr("d", line(d.values));
     }, this);
     // Add the X Axis
-    graphSvg.append("g")
+    this.svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + this.height + ")")
-      .call(xAxis);
+      .call(this.xAxis);
     // Add the Y Axis
-    graphSvg.append("g")
+    this.svg.append("g")
       .attr("class", "y axis")
-      .call(yAxis);
+      .call(this.yAxis);
     //add the legend
-    this.createLegend(graphSvg, data);
+    this.createLegend();
   }
 }

@@ -1,5 +1,5 @@
 'use strict';
-const mockdata = require('./mockdata.json');
+const mockdata = require('./mockdatav2.json');
 const http = require('http');
 const clientName = 'airQuality';
 
@@ -22,7 +22,8 @@ module.exports = class AirQualityClient {
     return mockdata;
   }
 
-  loadHandler() {   
+  loadHandler() {
+
     var type = this.config.type;
     var handler;
     switch (type) {
