@@ -2,8 +2,9 @@ import * as d3 from "d3";
 import { Events, EventAware } from './eventAware';
 
 export class TimeSeriesGraph extends EventAware {
-  constructor(elem) {
+  constructor(container, elem) {
     super(elem);
+    this.container = container;
     this.color = d3.scaleOrdinal(d3.schemeCategory10);
     this.margin = {
       top: 0,
@@ -82,7 +83,14 @@ export class TimeSeriesGraph extends EventAware {
     this.updateGraph(key);
   }
 
+  handleClick(d) {
+    this.container.classList.remove("d-block");
+    this.container.classList.add("d-none");
+    this.fire(Events.CLICK,d);
+  }
+
   highlight(d) {
+    console.log(d);
     this.handleMouseOver(d);
   }
 
@@ -167,7 +175,8 @@ export class TimeSeriesGraph extends EventAware {
         .attr("id", (d,i)=> `line-${i}`)
         .style("stroke", this.lineColor(d))
         .style("stroke-opacity", this.opacity(d,key))
-        .attr("d", line(d.values));
+        .attr("d", line(d.values))
+        .on('click', (e) => this.handleClick(d.key));
     }, this);
     // Add the X Axis
     this.svg.append("g")

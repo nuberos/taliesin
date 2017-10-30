@@ -61,9 +61,9 @@
       "district": "usera",
       "pollutant": "NO2"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "value": 0.5,
-      "district": "puentadevallecas",
+      "district": "puentedevallecas",
       "pollutant": "NO2"
     }, {
       "name": "Moratalaz",
@@ -98,7 +98,7 @@
     }, {
       "name": "San Blas",
       "value": 0.5,
-      "district": "sanblas",
+      "district": "sanblas-canillejas",
       "pollutant": "NO2"
     }, {
       "name": "Barajas",
@@ -167,9 +167,9 @@
       "district": "usera",
       "pollutant": "CO2"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "value": 0.65,
-      "district": "puentadevallecas",
+      "district": "puentedevallecas",
       "pollutant": "CO2"
     }, {
       "name": "Moratalaz",
@@ -204,7 +204,7 @@
     }, {
       "name": "San Blas",
       "value": 0.2,
-      "district": "sanblas",
+      "district": "sanblas-canillejas",
       "pollutant": "CO2"
     }, {
       "name": "Barajas",
@@ -273,9 +273,9 @@
       "district": "usera",
       "pollutant": "CO"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "value": 0.04,
-      "district": "puentadevallecas",
+      "district": "puentedevallecas",
       "pollutant": "CO"
     }, {
       "name": "Moratalaz",
@@ -310,7 +310,7 @@
     }, {
       "name": "San Blas",
       "value": 0.4,
-      "district": "sanblas",
+      "district": "sanblas-canillejas",
       "pollutant": "CO"
     }, {
       "name": "Barajas",
@@ -369,8 +369,8 @@
         "name": "Usera"
       },
       {
-        "district": "puentadevallecas",
-        "name": "Puenta de Vallecas"
+        "district": "puentedevallecas",
+        "name": "Puente de Vallecas"
       },
       {
         "district": "moratalaz",
@@ -397,7 +397,7 @@
         "name": "Vicalvaro"
       },
       {
-        "district": "sanblas",
+        "district": "sanblas-canillejas",
         "name": "San Blas"
       },
       {
@@ -466,10 +466,10 @@
       "avg": 45,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "13 01 2017",
       "avg": 98,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "13 01 2017",
@@ -504,7 +504,7 @@
       "name": "San Blas",
       "date": "13 01 2017",
       "avg": 20,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "13 01 2017",
@@ -571,10 +571,10 @@
       "avg": 44,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "14 01 2017",
       "avg": 97,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "14 01 2017",
@@ -609,7 +609,7 @@
       "name": "San Blas",
       "date": "14 01 2017",
       "avg": 21,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "14 01 2017",
@@ -676,10 +676,10 @@
       "avg": 45,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "15 01 2017",
       "avg": 98,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "15 01 2017",
@@ -714,7 +714,7 @@
       "name": "San Blas",
       "date": "15 01 2017",
       "avg": 22,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "15 01 2017",
@@ -781,10 +781,10 @@
       "avg": 46,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "16 01 2017",
       "avg": 99,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "16 01 2017",
@@ -819,7 +819,7 @@
       "name": "San Blas",
       "date": "16 01 2017",
       "avg": 25,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "16 01 2017",
@@ -886,10 +886,10 @@
       "avg": 47,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "17 01 2017",
       "avg": 101,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "17 01 2017",
@@ -924,7 +924,7 @@
       "name": "San Blas",
       "date": "17 01 2017",
       "avg": 26,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "17 01 2017",
@@ -991,10 +991,10 @@
       "avg": 48,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "18 01 2017",
       "avg": 102,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "18 01 2017",
@@ -1029,7 +1029,7 @@
       "name": "San Blas",
       "date": "18 01 2017",
       "avg": 27,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "18 01 2017",
@@ -1096,10 +1096,10 @@
       "avg": 49,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "19 01 2017",
       "avg": 103,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "19 01 2017",
@@ -1134,7 +1134,7 @@
       "name": "San Blas",
       "date": "19 01 2017",
       "avg": 29,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "19 01 2017",
@@ -1201,10 +1201,10 @@
       "avg": 53,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "20 01 2017",
       "avg": 107,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "20 01 2017",
@@ -1239,7 +1239,7 @@
       "name": "San Blas",
       "date": "20 01 2017",
       "avg": 22,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "20 01 2017",
@@ -1306,10 +1306,10 @@
       "avg": 51,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "21 01 2017",
       "avg": 106,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "21 01 2017",
@@ -1344,7 +1344,7 @@
       "name": "San Blas",
       "date": "21 01 2017",
       "avg": 21,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "21 01 2017",
@@ -1411,10 +1411,10 @@
       "avg": 50,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "22 01 2017",
       "avg": 103,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "22 01 2017",
@@ -1449,7 +1449,7 @@
       "name": "San Blas",
       "date": "22 01 2017",
       "avg": 19,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "22 01 2017",
@@ -1516,10 +1516,10 @@
       "avg": 50,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "23 01 2017",
       "avg": 101,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "23 01 2017",
@@ -1554,7 +1554,7 @@
       "name": "San Blas",
       "date": "23 01 2017",
       "avg": 17,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "23 01 2017",
@@ -1621,10 +1621,10 @@
       "avg": 51,
       "district": "usera"
     }, {
-      "name": "Puenta de Vallecas",
+      "name": "Puente de Vallecas",
       "date": "24 01 2017",
       "avg": 103,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "24 01 2017",
@@ -1659,7 +1659,7 @@
       "name": "San Blas",
       "date": "24 01 2017",
       "avg": 11,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "24 01 2017",
@@ -1729,7 +1729,7 @@
       "name": "Puenta de Vallecas",
       "date": "25 01 2017",
       "avg": 101,
-      "district": "puentadevallecas"
+      "district": "puentedevallecas"
     }, {
       "name": "Moratalaz",
       "date": "25 01 2017",
@@ -1764,7 +1764,7 @@
       "name": "San Blas",
       "date": "25 01 2017",
       "avg": 15,
-      "district": "sanblas"
+      "district": "sanblas-canillejas"
     }, {
       "name": "Barajas",
       "date": "25 01 2017",

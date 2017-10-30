@@ -2,7 +2,7 @@ import L from 'leaflet';
 import { Events, EventAware } from './eventAware';
 
 export class Map extends EventAware {
-  constructor(elem, container) {
+  constructor(container, elem) {
     super(elem);
     this.container = container;
     // start the map in South-East England
@@ -16,7 +16,8 @@ export class Map extends EventAware {
       var neighbourhoodPoints = data.features.filter(function(f) {
         return f.properties.codbar === d.properties.codbar;
       });
-      this.container.style.marginLeft = "0px";
+      this._elem.style.left = "0px";
+      //this.container.style.left = "0px";
       this.mapLayers.clearLayers();
       this.markersLayer.clearLayers();
       var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';

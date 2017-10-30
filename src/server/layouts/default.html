@@ -39,12 +39,18 @@
       font-family: 'Lato', sans-serif;
     }
 
-    #neighbourhoodmapcontainer {
-      margin-left: -9999px;
+    #neighbourhoodmapcontainer, #detailscontainer {
+      position: relative;
+    }
+
+    #detailscontent, #neighbourhoodmap {
+      position: absolute;
+      left: -9999px;
     }
 
     #neighbourhoodmap {
       height: 650px;
+      width: 800px;
     }
 
     #map .legend {
@@ -109,6 +115,7 @@
     <div id="maincontainer" class="container-fluid">
       {{{content}}}
     </div>
+    {{> details }}
     {{> neighbourhood }}
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
