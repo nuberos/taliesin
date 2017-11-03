@@ -19,7 +19,7 @@ server.register([require('vision'),require('inert')], (err) => {
     }
     server.views({
       engines: {
-        html: require('handlebars')
+        hbs: require('handlebars')
       },
       relativeTo:  __dirname,
       path: './templates',

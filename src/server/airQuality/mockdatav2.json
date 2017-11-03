@@ -1,4 +1,154 @@
 {
+  "districts": [{
+    "district": "centro",
+    "name": "Centro",
+    "color": {
+      "base": "#1f77b4",
+      "emphasis": "#10649C"
+    }    
+  },
+  {
+    "district": "arganzuela",
+    "name": "Arganzuela",
+    "color": {
+      "base": "#ff7f0e",
+      "emphasis": "#844004"
+    }
+  },
+  {
+    "district": "retiro",
+    "name": "Retiro",
+    "color": {"base": "#2ca02c",
+      "emphasis": "#0E520E"
+    }
+  },
+  {
+    "district": "salamanca",
+    "name": "Salamanca",
+    "color": {"base": "#d62728",
+      "emphasis": "#430909"
+    }
+  },
+  {
+    "district": "chamartin",
+    "name": "Chamartin",
+    "color": {"base": "#9467bd",
+      "emphasis": "#21152D"
+    }
+  },
+  {
+    "district": "tetuan",
+    "name": "Tetuan",
+    "color": {"base": "#8c564b",
+      "emphasis": "#3D231E"
+    }
+  },
+  {
+    "district": "chamberi",
+    "name": "Chamberi",
+    "color": {"base": "#e377c2",
+      "emphasis": "#62224D"
+    }
+  },
+  {
+    "district": "fuencarral-elpardo",
+    "name": "Fuencarral-El Pardo",
+    "color": {"base": "#7f7f7f",
+      "emphasis": "#373333"
+    }
+  },
+  {
+    "district": "moncloa-aravaca",
+    "name": "Moncloa-Aravaca",
+    "color": {"base": "#bcbd22",
+      "emphasis": "#535307"
+    }
+  },
+  {
+    "district": "latina",
+    "name": "Latina",
+    "color":{"base": "#17becf",
+      "emphasis": "#054B51"
+    }
+  },
+  {
+    "district": "carabanchel",
+    "name": "Carabanchel",
+    "color": {"base": "#1f77b4",
+      "emphasis": "#10649C"
+    }
+  },
+  {
+    "district": "usera",
+    "name": "Usera",
+    "color": {"base": "#ff7f0e",
+      "emphasis": "#844004"
+    }
+  },
+  {
+    "district": "puentedevallecas",
+    "name": "Puente de Vallecas",
+    "color": {"base": "#2ca02c",
+      "emphasis": "#0E520E"
+    }
+  },
+  {
+    "district": "moratalaz",
+    "name": "Moratalaz",
+    "color": {"base": "#d62728",
+      "emphasis": "#430909"
+    }
+  },
+  {
+    "district": "ciudadlineal",
+    "name": "Ciudad Lineal",
+    "color": {"base": "#9467bd",
+      "emphasis": "#21152D"
+    }
+  },
+  {
+    "district": "hortaleza",
+    "name": "Hortaleza",
+    "color": {"base": "#8c564b",
+      "emphasis": "#3D231E"
+    }
+  },
+  {
+    "district": "villaverde",
+    "name": "Villaverde",
+    "color": {"base": "#e377c2",
+      "emphasis": "#62224D"
+    }
+  },
+  {
+    "district": "villadevallecas",
+    "name": "Villa de Vallecas",
+    "color": {"base": "#7f7f7f",
+      "emphasis": "#373333" 
+    }
+  },
+  {
+    "district": "vicalvaro",
+    "name": "Vicalvaro",
+    "color": {"base": "#bcbd22",
+      "emphasis": "#535307"
+    }
+  },
+  {
+    "district": "sanblas-canillejas",
+    "name": "San Blas",
+    "color": {"base": "#17becf",
+      "emphasis": "#054B51"
+    }
+  },
+  {
+    "district": "barajas",
+    "name": "Barajas",
+    "color": {"base": "#1f77b4",
+      "emphasis": "#10649C"
+    }
+  }
+],
   "statisticsData": [
     [{
       "name": "Centro",
@@ -319,92 +469,7 @@
       "pollutant": "CO"
     }]
   ],
-  "temporalEvolution": {
-    "keys": [{
-        "district": "centro",
-        "name": "Centro"
-      },
-      {
-        "district": "arganzuela",
-        "name": "Arganzuela"
-      },
-      {
-        "district": "retiro",
-        "name": "Retiro"
-      },
-      {
-        "district": "salamanca",
-        "name": "Salamanca"
-      },
-      {
-        "district": "chamartin",
-        "name": "Chamartin"
-      },
-      {
-        "district": "tetuan",
-        "name": "Tetuan"
-      },
-      {
-        "district": "chamberi",
-        "name": "Chamberi"
-      },
-      {
-        "district": "fuencarral-elpardo",
-        "name": "Fuencarral-El Pardo"
-      },
-      {
-        "district": "Moncloa-Aravaca",
-        "name": "Moncloa-Aravaca"
-      },
-      {
-        "district": "latina",
-        "name": "Latina"
-      },
-      {
-        "district": "carabanchel",
-        "name": "Carabanchel"
-      },
-      {
-        "district": "usera",
-        "name": "Usera"
-      },
-      {
-        "district": "puentedevallecas",
-        "name": "Puente de Vallecas"
-      },
-      {
-        "district": "moratalaz",
-        "name": "Moratalaz"
-      },
-      {
-        "district": "ciudadlineal",
-        "name": "Ciudad Lineal"
-      },
-      {
-        "district": "hortaleza",
-        "name": "Hortaleza"
-      },
-      {
-        "district": "villaverde",
-        "name": "Villaverde"
-      },
-      {
-        "district": "villadevallecas",
-        "name": "Villa de Vallecas"
-      },
-      {
-        "district": "vicalvaro",
-        "name": "Vicalvaro"
-      },
-      {
-        "district": "sanblas-canillejas",
-        "name": "San Blas"
-      },
-      {
-        "district": "barajas",
-        "name": "Barajas"
-      }
-    ],
+  "temporalEvolution": {    
     "values": [{
       "name": "Centro",
       "date": "13 01 2017",

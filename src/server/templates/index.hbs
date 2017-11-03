@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-2">
+    <div id="controls" class="list-group">
+      {{#each districts}}        
+        <a href="#" class="list-group-item list-group-item-action" 
+        id="{{district}}" style="color:{{color.base}} !important; padding:.55rem 1.25rem; font-size:.75rem;">
+          {{!-- <span class="badge badge-primary badge-pill" style="background-color:{{color}}; color:{{color}} ">di</span>--}}{{name}}
+          </a>
+      {{/each}}
+    </div>
+  </div>
+  <div class="col-5">
+    <div id="map"></div>
+  </div>
+  <div class="col-5">
+    <div class="row">
+      <div class="col">
+        <div id="graph"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div id="chart"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script async src="static/index.bundle.js"  charset="utf-8"></script>

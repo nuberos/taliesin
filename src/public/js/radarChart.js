@@ -1,13 +1,13 @@
 // Chart
 import * as d3 from "d3";
-import { EventAware } from './eventAware';
 
-export class RadarChart extends EventAware {
-  constructor(elem) {
-    super(elem);
-    this.margin = { top: 60, right: 20, bottom: 60, left: 20 };
-    this.width = 600 - this.margin.left - this.margin.right;
-    this.height = 450 - this.margin.top - this.margin.bottom;
+export class RadarChart {
+  constructor(config, components) {
+    this.config = config;
+    this.components = components;
+    this.margin = { top: 50, right: 60, bottom: 50, left: 60 };
+    this.width = 400 - this.margin.left - this.margin.right;
+    this.height = 400 - this.margin.top - this.margin.bottom;
     this.levels = 2; //How many levels or inner circles should there be drawn
     this.color = d3.scaleOrdinal(d3.schemeCategory10);
     this.opacityArea = 0.35; //The opacity of the area of the blob
@@ -18,7 +18,7 @@ export class RadarChart extends EventAware {
     var totalWidth = this.width + this.margin.left + this.margin.right,
       totalHeight = this.height + this.margin.top + this.margin.bottom,
       transform = "translate(" + (this.width / 2 + this.margin.left) + "," + (this.height / 2 + this.margin.top) + ")";
-    return d3.select(this._elem).append("svg")
+    return d3.select(this.components.tertiary).append("svg")
       .attr("width", totalWidth)
       .attr("height", totalHeight)
       .attr("class", "radarchart")

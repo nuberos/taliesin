@@ -1,24 +1,28 @@
 import * as d3 from "d3";
-import { Events, EventAware } from './eventAware';
+import { createEvent } from './eventFactory';
 
-export class TimeSeriesGraph extends EventAware {
-  constructor(container, elem) {
-    super(elem);
-    this.container = container;
+export class TimeSeriesGraph {
+  constructor(config, components) {
+    this.config = config;
+    this.components = components;
     this.color = d3.scaleOrdinal(d3.schemeCategory10);
     this.margin = {
       top: 0,
-      right: 20,
+      right: 0,
       bottom: 30,
-      left: 50
+      left: 0
     };
-    this.width = 700 - this.margin.left - this.margin.right;
-    this.height = 400 - this.margin.top - this.margin.bottom;
+    this.width = 500 - this.margin.left - this.margin.right;
+    this.height = 300 - this.margin.top - this.margin.bottom;
     this.dateFormat = d3.timeFormat("%d %m %Y");
     this.x = d3.scaleTime().range([0, this.width]);
     this.y = d3.scaleLinear().range([this.height, 0]);
     this.xAxis = d3.axisBottom(this.x).ticks(5);
     this.yAxis = d3.axisLeft(this.y).ticks(5);
+    components.primary.addEventListener('highlight', (e) => this.highlight(e));
+    components.primary.addEventListener('restore', (e) => this.restore());
+    components.controls.addEventListener('highlight', (e) => this.highlight(e));
+    components.controls.addEventListener('restore', (e) => this.restore(e));
   }
 
   parseDate(date) {
@@ -27,7 +31,7 @@ export class TimeSeriesGraph extends EventAware {
   }
 
   createCanvas() {
-    return d3.select(this._elem)
+    return d3.select(this.components.secondary)
       .append("svg")
       .attr("width", this.width + this.margin.left + this.margin.right)
       .attr("height", this.height + this.margin.top + this.margin.bottom)
@@ -77,29 +81,33 @@ export class TimeSeriesGraph extends EventAware {
     return opacity;
   }
 
-  handleMouseOver(key) { // Add interactivity
+  highlight(e) {
     // remove contents of svg
     this.svg.selectAll("path").remove();
-    this.updateGraph(key);
+    //this.fire(Events.MOUSEOVER,key);
+    this.updateGraph(e.detail.district);
   }
 
-  handleClick(d) {
-    this.container.classList.remove("d-block");
-    this.container.classList.add("d-none");
-    this.fire(Events.CLICK,d);
-  }
-
-  highlight(d) {
-    console.log(d);
-    this.handleMouseOver(d);
-  }
-
-  restore(d) {
+  restore(e) {
+    //this.fire(Events.MOUSEOUT);
     this.updateGraph();
   }
 
+  fire(eventType, district) {    
+    const options = {eventType: eventType, district: district};
+    var event = createEvent(options);
+    this.components.secondary.dispatchEvent(event);
+    console.info('event type: %s with details: %s fired',eventType,options);
+  }
+
+  handleClick(d) {
+    this.components.container.classList.remove("d-block");
+    this.components.container.classList.add("d-none");
+    //this.fire(Events.CLICK,d);
+  }
+
   createLegend() {
-    var legendWidth = 180,
+    /*var legendWidth = 180,
       fontsz = 11,
       texth = fontsz + 1,
       rl = 11,
@@ -144,9 +152,7 @@ export class TimeSeriesGraph extends EventAware {
         return d.name
       })
       .attr("font-size", `${fontsz}px`)
-      .style("fill", "black")
-      .on("mouseover", (d) => this.handleMouseOver(d.district))
-      .on("mouseout", (d) => this.updateGraph());
+      .style("fill", "black");*/
 
   }
   lineColor(d) {
@@ -176,7 +182,9 @@ export class TimeSeriesGraph extends EventAware {
         .style("stroke", this.lineColor(d))
         .style("stroke-opacity", this.opacity(d,key))
         .attr("d", line(d.values))
-        .on('click', (e) => this.handleClick(d.key));
+        .on('click', (e) => this.handleClick(d.key))
+        .on('mouseover', (e) => this.fire('highlight',d.key))
+        .on('mouseout', (e) => this.fire('restore',d.key));        
     }, this);
     // Add the X Axis
     this.svg.append("g")

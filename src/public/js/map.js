@@ -1,9 +1,7 @@
 import L from 'leaflet';
-import { Events, EventAware } from './eventAware';
-
-export class Map extends EventAware {
+export class Map {
   constructor(container, elem) {
-    super(elem);
+    this._elem = elem;
     this.container = container;
     // start the map in South-East England
     this.map = new L.map(elem);

@@ -13,12 +13,22 @@ ReactDOM.render(
 //graficos interaccionan entre ellos
 import { ChoroplethMap } from './choroplethMap';
 import { Map } from './map';
-import { Events } from './eventAware';
 import { TimeSeriesGraph } from './timeSeriesGraph';
 import { RadarChart } from './radarChart';
 import { show } from './detail';
+import { Controls } from './controls';
+
+var components = {
+  container: document.getElementById("maincontainer"), 
+  controls: document.getElementById('controls'),
+  primary: document.getElementById('map'),
+  secondary: document.getElementById('graph'),
+  tertiary: document.getElementById('chart')
+};
 var config = window.__APPCFG__;
 var data = window.__INITIAL_STATE__;
+var controls = new Controls({},document.getElementById('controls'));
+controls.init();
 var map = new Map(document.getElementById("detailscontainer"),document.getElementById('neighbourhoodmap'));
 function showAllData(evt) {
   document.getElementById("detailscontent").style.left = "-9999px";
@@ -32,13 +42,14 @@ var backArrow = document.getElementById('back');
 backArrow.addEventListener('click', showAllData);
 
 //
-var choroplethMap = new ChoroplethMap(config,document.getElementById('maincontainer'),document.getElementById('map'));
-var timeGraph = new TimeSeriesGraph(document.getElementById('maincontainer'),document.getElementById('graph'));
-var radarChart = new RadarChart(document.getElementById('chart'));
+var choroplethMap = new ChoroplethMap(config,components);
+var timeGraph = new TimeSeriesGraph(config,components);
+var radarChart = new RadarChart(config,components);
+
 choroplethMap.draw(data.geoData);
 timeGraph.draw(data.temporalEvolution);
 radarChart.draw(data.statisticsData);
-var drawMap = (d) => {
+/*var drawMap = (d) => {
   document.getElementById('back').classList.remove("d-none");
   document.getElementById('back').classList.add("d-block");
   map.draw(data.geoData,d) 
@@ -51,7 +62,6 @@ var drawDetailedGraph = (d) => {
   var ct = document.getElementById("detailscontent");
   show(ct,d);
 };
-choroplethMap.subscribe(Events.CLICK, drawMap); // probar https://developer.mozilla.org/es/docs/Web/API/CustomEvent
-choroplethMap.subscribe(Events.MOUSEOVER, highlightTimeSerie);
-choroplethMap.subscribe(Events.MOUSEOUT, restoreTimeSeries);
-timeGraph.subscribe(Events.CLICK, drawDetailedGraph); // probar https://developer.mozilla.org/es/docs/Web/API/CustomEvent
+var highlightDistrict = (d) => choroplethMap.highlight(d);
+var restoreDistrict = () => choroplethMap.restore();*/
+

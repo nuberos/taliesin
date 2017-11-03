@@ -1,15 +1,14 @@
 //longitude and latitude coords
 import * as d3 from "d3";
-import { Events, EventAware } from './eventAware';
+import { createEvent } from './eventFactory';
 
-export class ChoroplethMap extends EventAware {
-  constructor(config, container, elem) {
-    super(elem);
+export class ChoroplethMap {
+  constructor(config, components) {    
     this.config = config;
-    this.container = container;
-    this.margin = { top: 0, right: 20, bottom: 20, left: 20 };
-    this.width  = 700 - this.margin.left - this.margin.right;
-    this.height = 670 - this.margin.top - this.margin.bottom;
+    this.components = components;
+    this.margin = { top: 0, right: 0, bottom: 0, left: 0 };
+    this.width  = 500 - this.margin.left - this.margin.right;
+    this.height = 700 - this.margin.top - this.margin.bottom;
     this.domainScale = [50, 150, 350, 750, 1450, 2850, 5650, 11250, 22450, 44850, 89650, 179250];
     this.legendDomainScale = [0, 50, 150, 350, 750, 1450, 2850, 5650, 11250, 22450, 44850, 89650, 179250];
     this.legendLabels = ["< 50", "50+", "150+", "350+", "750+", "1450+", "2850+", "5650+", "11250+", "22450+", "44850+", "89650+", "> 179250 "];
@@ -28,10 +27,14 @@ export class ChoroplethMap extends EventAware {
         '#a5232b',
         '#800026'
       ]);
+      components.controls.addEventListener('highlight', this.highlight);
+      components.controls.addEventListener('restore', this.restore);
+      components.secondary.addEventListener('highlight', (e) => this.highlight(e));
+      components.secondary.addEventListener('restore', (e) => this.restore());
   }
 
   createCanvas() {
-    var svg = d3.select(this._elem)
+    var svg = d3.select(this.components.primary)
       .append("svg")
       .attr("preserveAspectRatio", "xMidYMid")
       .attr("viewBox", "0 0 " + this.width + " " + this.height)
@@ -45,11 +48,51 @@ export class ChoroplethMap extends EventAware {
     return svg;
   }
 
+  addGlow(svg) {
+    svg.append('defs')
+      .append('filter')
+      .attr('id', 'glow')
+      .append('feGaussianBlur')
+      .attr('stdDeviation', '2.5')
+      .attr('result', 'coloredBlur')
+      .append('feMerge')
+      .append('feMergeNode')
+      .attr('in', 'coloredBlur')
+      .append('feMergeNode')
+      .attr('in', 'SourceGraphic');
+  }
+
   getPollutionData(corbar) {
     var min = 0;
     var max = this.domainScale[this.domainScale.length - 1];
     var random = Math.floor(Math.random() * (max - min + 1)) + min;
     return random;
+  }
+
+  highlight(e) {
+    console.log('highlight!');
+    console.dir(e);
+    d3.select('g#neighbourhoods').selectAll(`.${e.detail.district}`).style("fill-opacity", .7);
+  }
+
+  restore(e) {
+    console.log('restore!');
+    console.dir(e);
+    d3.select('g#neighbourhoods').selectAll('path').style("fill-opacity", 1);
+  }
+
+  onClick(d) {
+    d.centroid = d3.geoCentroid(d);
+    this.components.container.classList.remove("d-block");
+    this.components.container.classList.add("d-none");
+    this.fire('showmap',d);
+  }
+
+  fire(eventType, district) {    
+    const options = {eventType: eventType, district: district};
+    var event = createEvent(options);
+    this.components.primary.dispatchEvent(event);
+    console.info('event type: %s with details: %s fired',eventType,options);
   }
 
   appendDistricts(svg, geojson) {
@@ -61,24 +104,8 @@ export class ChoroplethMap extends EventAware {
       .enter()
       .append("path")
       .attr("d", path)
-      .attr("id", (d) => d.properties.name)
-      .attr("class", "district")
-      .attr("class", "active");
-  }
-
-  onClick(d) {
-    d.centroid = d3.geoCentroid(d);
-    this.container.classList.remove("d-block");
-    this.container.classList.add("d-none");
-    this.fire(Events.CLICK,d);
-  }
-
-  mouseover(d) {
-      this.fire(Events.MOUSEOVER,d.properties.district);
-  }
-
-  mouseout(d) {
-      this.fire(Events.MOUSEOUT,d.properties.district);
+      .attr("id", (d) => d.properties.district)
+      .attr("class", "active district")
   }
 
   appendNeighbourhoods(svg, geojson, data) {
@@ -89,32 +116,37 @@ export class ChoroplethMap extends EventAware {
       .enter()
       .append("path")
       .attr("d", path)
-      .attr("id", (d) => d.properties.codbar)
-      .attr("class", "neighborhood")
-      .attr("class", "active")
+      .attr("id", (d) => `nhb${d.properties.codbar}`)
+      .attr("class", (d)=> `active neighborhood ${d.properties.district}`)
       .attr("d", path)
       .style("fill", (d) => {
         var num = this.getPollutionData(d.properties.codbar);
         return this.colors(num);
       })
-      .attr("opacity", "0.7")
-      .on('click', (d)=> this.onClick(d))
-      .on('mouseover', (d)=> this.mouseover(d))
-      .on('mouseout', (d)=> this.mouseout(d));
+      .on("mouseover", (d) => this.fire('highlight',d.properties.district))
+      .on("mouseout", (d) => this.fire('restore',d.properties.district));
+      //.style("fill-opacity", "0.7");
   }
 
   appendStations(svg, geojson, data) {
-    var projection = d3.geoMercator().fitSize([this.width, this.height], geojson.objects.neighbourhoods);
+    /*var projection = d3.geoMercator().fitSize([this.width, this.height], geojson.objects.neighbourhoods);
     var path = d3.geoPath().projection(projection);
     svg.selectAll("circle")
       .data(data.features)
       .enter()
-      .append("circle")
-      .attr("cx", (d) => projection(d.geometry.coordinates)[0])
-      .attr("cy", (d) => projection(d.geometry.coordinates)[1])
-      .attr("r", (d) => Math.sqrt(d.properties.years) * 4)
-      .style("fill", "rgb(44,127,184)")
-      .style("opacity", 0.85);
+      .append("image")
+      .attr("xlink:href", "https://github.com/favicon.ico")
+      .attr("x", -8)
+      .attr("y", -8)
+      .attr("width", 16)
+      .attr("height", 16);*/
+
+      //.append("circle")
+      //.attr("cx", (d) => projection(d.geometry.coordinates)[0])
+      //.attr("cy", (d) => projection(d.geometry.coordinates)[1])
+      //.attr("r", (d) => Math.sqrt(d.properties.years) * 4)
+      //.style("fill", "rgb(44,127,184)")
+      //.style("opacity", 0.85);
   }
 
   appendLegend(svg) {
@@ -130,7 +162,7 @@ export class ChoroplethMap extends EventAware {
       .attr("width", ls_w)
       .attr("height", ls_h)
       .style("fill", (d, i) => this.colors(d))
-      .style("opacity", 0.8);
+      .style("fill-opacity", 0.8);
 
     legend.append("text")
       .attr("x", 50)
@@ -141,9 +173,10 @@ export class ChoroplethMap extends EventAware {
 
   draw(data) {
     // Append Div for tooltip to SVG
-    var svg = this.createCanvas();
+    var svg = this.createCanvas();    
     var districtsg = svg.append("g").attr("id", "districts");
     var neighbourhoodsg = svg.append("g").attr("id", "neighbourhoods");
+    this.addGlow(neighbourhoodsg);
     var stationsg = svg.append("g").attr("id", "stations");
 
     d3.json(`static/${this.config.geojson}`, (error, geojson) => {

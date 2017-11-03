@@ -1,4 +1,4 @@
-Skip to content
+/*Skip to content
 Features
 Business
 Explore
@@ -494,3 +494,4 @@ d3.csv('data/values.csv', function(values) {
     });
   });
 });
+*/

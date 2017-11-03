@@ -81,7 +81,7 @@ gulp.task('start',['webpack'],function() {
   nodemon({
     script: path.join(SERVER_DIR,'index.js'),
     watch: 'src',
-    ext: 'js css html',
+    ext: 'js css html hbs',
     env: {'NODE_ENV': 'development'},
     tasks: ['webpack']
   }).on('restart', function() {
