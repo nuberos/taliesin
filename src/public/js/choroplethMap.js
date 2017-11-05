@@ -7,7 +7,7 @@ export class ChoroplethMap {
     this.config = config;
     this.components = components;
     this.margin = { top: 0, right: 0, bottom: 0, left: 0 };
-    this.width  = 500 - this.margin.left - this.margin.right;
+    this.width  = 475 - this.margin.left - this.margin.right;
     this.height = 700 - this.margin.top - this.margin.bottom;
     this.domainScale = [50, 150, 350, 750, 1450, 2850, 5650, 11250, 22450, 44850, 89650, 179250];
     this.legendDomainScale = [0, 50, 150, 350, 750, 1450, 2850, 5650, 11250, 22450, 44850, 89650, 179250];
@@ -81,15 +81,8 @@ export class ChoroplethMap {
     d3.select('g#neighbourhoods').selectAll('path').style("fill-opacity", 1);
   }
 
-  onClick(d) {
-    d.centroid = d3.geoCentroid(d);
-    this.components.container.classList.remove("d-block");
-    this.components.container.classList.add("d-none");
-    this.fire('showmap',d);
-  }
-
-  fire(eventType, district) {    
-    const options = {eventType: eventType, district: district};
+  fire(eventType, options) {    
+    Object.assign(options,{eventType: eventType});
     var event = createEvent(options);
     this.components.primary.dispatchEvent(event);
     console.info('event type: %s with details: %s fired',eventType,options);
@@ -123,9 +116,14 @@ export class ChoroplethMap {
         var num = this.getPollutionData(d.properties.codbar);
         return this.colors(num);
       })
-      .on("mouseover", (d) => this.fire('highlight',d.properties.district))
-      .on("mouseout", (d) => this.fire('restore',d.properties.district));
-      //.style("fill-opacity", "0.7");
+      .on("mouseover", (d) => this.fire('highlight',{district: d.properties.district}))
+      .on("mouseout", (d) => {console.dir(d);this.fire('restore',{district: d.properties.district})})
+      .on("click", (d) => {        
+        this.components.container.classList.remove("d-block");
+        this.components.container.classList.add("d-none");        
+        const options = {geojson: d, codbar: d.properties.codbar};
+        this.fire('showmap',options);
+      });      
   }
 
   appendStations(svg, geojson, data) {

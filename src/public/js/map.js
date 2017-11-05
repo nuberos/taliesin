@@ -1,20 +1,28 @@
 import L from 'leaflet';
-export class Map {
-  constructor(container, elem) {
-    this._elem = elem;
-    this.container = container;
+export class Map {  
+  constructor(config, components, data) {
+    this.components = components;
+    this.config = config;
+    this.data = data;
     // start the map in South-East England
-    this.map = new L.map(elem);
+    this.map = new L.map(components.primaryDetail.elem);
     this.markersLayer = new L.LayerGroup();
     this.mapLayers = new L.LayerGroup();
+    components.primary.addEventListener('showmap', (e) => this.show(e));
   }
 
-  draw(data, d) {
+  show(e) {
+    document.getElementById('back').classList.remove("d-none");
+    document.getElementById('back').classList.add("d-block");    
+    this.draw(e.detail.geojson,e.detail.codbar);
+  }
+
+  draw(geojson,codbar) {
     try {
-      var neighbourhoodPoints = data.features.filter(function(f) {
-        return f.properties.codbar === d.properties.codbar;
+      var neighbourhoodPoints = this.data.features.filter(function(f) {
+        return f.properties.codbar === codbar;
       });
-      this._elem.style.left = "0px";
+      this.components.primaryDetail.elem.style.left = "0px";
       //this.container.style.left = "0px";
       this.mapLayers.clearLayers();
       this.markersLayer.clearLayers();
@@ -26,9 +34,8 @@ export class Map {
         this.markersLayer.addLayer(L.marker(new L.LatLng(i.geometry.coordinates[1], i.geometry.coordinates[0]), {
           title: title
         }));
-      },this);
-      var geoJsonLayer = L.geoJson(d);
-
+      },this);      
+      var geoJsonLayer = L.geoJson(geojson);      
       this.mapLayers.addLayer(new L.TileLayer(osmUrl, {
         maxZoom: 15,
         attribution: osmAttrib

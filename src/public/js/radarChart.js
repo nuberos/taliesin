@@ -5,9 +5,9 @@ export class RadarChart {
   constructor(config, components) {
     this.config = config;
     this.components = components;
-    this.margin = { top: 50, right: 60, bottom: 50, left: 60 };
-    this.width = 400 - this.margin.left - this.margin.right;
-    this.height = 400 - this.margin.top - this.margin.bottom;
+    this.margin = { top: 50, right: 60, bottom: 50, left: 100 };
+    this.width = 450 - this.margin.left - this.margin.right;
+    this.height = 450 - this.margin.top - this.margin.bottom;
     this.levels = 2; //How many levels or inner circles should there be drawn
     this.color = d3.scaleOrdinal(d3.schemeCategory10);
     this.opacityArea = 0.35; //The opacity of the area of the blob

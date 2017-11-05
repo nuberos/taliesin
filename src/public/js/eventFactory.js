@@ -15,8 +15,10 @@ class RestoreDetails {
 }
 
 class MapDetails {
-    constructor(options) { 
-        this.d = options.d;   
+    constructor(options) {         
+        this.geojson = options.geojson;
+        this.d = options.d;  
+        this.codbar = options.codbar; 
     }  
 }
 

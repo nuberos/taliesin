@@ -5,19 +5,19 @@ export class TimeSeriesGraph {
   constructor(config, components) {
     this.config = config;
     this.components = components;
-    this.color = d3.scaleOrdinal(d3.schemeCategory10);
+    this.color = d3.scaleOrdinal(config.districts.map((d) => d.color.base)).domain(config.districts.map((d) => d.district));
     this.margin = {
       top: 0,
       right: 0,
-      bottom: 30,
-      left: 0
+      bottom: 45,
+      left: 45
     };
-    this.width = 500 - this.margin.left - this.margin.right;
+    this.width = 600 - this.margin.left - this.margin.right;
     this.height = 300 - this.margin.top - this.margin.bottom;
     this.dateFormat = d3.timeFormat("%d %m %Y");
     this.x = d3.scaleTime().range([0, this.width]);
     this.y = d3.scaleLinear().range([this.height, 0]);
-    this.xAxis = d3.axisBottom(this.x).ticks(5);
+    this.xAxis = d3.axisBottom(this.x).ticks(d3.timeHour.every(24)).tickFormat(d3.timeFormat("%e/%m"));
     this.yAxis = d3.axisLeft(this.y).ticks(5);
     components.primary.addEventListener('highlight', (e) => this.highlight(e));
     components.primary.addEventListener('restore', (e) => this.restore());
@@ -38,6 +38,31 @@ export class TimeSeriesGraph {
       .append("g")
       .attr("transform",
         "translate(" + this.margin.left + "," + this.margin.top + ")");
+  }
+
+  drawAxis() {
+    // Add the X Axis
+    this.svg.append("g")
+      .attr("class", "xaxis")
+      .attr("transform", "translate(0," + this.height + ")")
+      .call(this.xAxis);    
+    this.svg.append("text")
+      .attr("class", "label")
+      .attr("transform","translate(" + (this.width/2) + " ," + (this.height + this.margin.bottom - 10) + ")")
+      .style("text-anchor", "middle")
+      .text("Fecha");
+    // Add the Y Axis
+    this.svg.append("g")
+      .attr("class", "yaxis")
+      .call(this.yAxis);
+    this.svg.append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - this.margin.left)
+      .attr("x",0 - (this.height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Distrito");  
   }
 
   dataNest() {
@@ -83,7 +108,7 @@ export class TimeSeriesGraph {
 
   highlight(e) {
     // remove contents of svg
-    this.svg.selectAll("path").remove();
+    this.svg.selectAll("path.line").remove();
     //this.fire(Events.MOUSEOVER,key);
     this.updateGraph(e.detail.district);
   }
@@ -105,56 +130,7 @@ export class TimeSeriesGraph {
     this.components.container.classList.add("d-none");
     //this.fire(Events.CLICK,d);
   }
-
-  createLegend() {
-    /*var legendWidth = 180,
-      fontsz = 11,
-      texth = fontsz + 1,
-      rl = 11,
-      texth = fontsz + 1,
-      legendHeight = this.data.keys.length * texth + 30;
-    var legend = this.svg.append("g")
-      .attr("class", "legendContainer")
-      .style("fill", "white")
-      .style("fill-opacity", "0.85")
-      .attr("width", legendWidth)
-      .attr("height", legendHeight)
-      .attr("transform", "translate(" + (this.width - legendWidth) + ",0)");
-
-    legend.append("rect")
-      .attr("class", "legendRect")
-      .attr("x", "0")
-      .attr("y", "0")
-      .attr("width", legendWidth)
-      .attr("height", legendHeight)
-      .attr("fill", "white")
-      .style("fill-opacity", "0.85");
-
-    var legendElement = legend.selectAll("g")
-      .data(this.data.keys)
-      .enter().append("g")
-      .attr("class", "legend");
-    legendElement.append("rect")
-      .attr("x", 10)
-      .attr("y", function(d, i) {
-        return (i + 1) * texth
-      })
-      .attr("width", rl)
-      .attr("height", rl)
-      .style("fill", (d) => this.color(d.district));
-    //.style("opacity", 0.8);
-    legendElement.append("text")
-      .attr("x", 10 + rl + 10)
-      .attr("y", function(d, i) {
-        return 10 + (i + 1) * texth
-      })
-      .text(function(d) {
-        return d.name
-      })
-      .attr("font-size", `${fontsz}px`)
-      .style("fill", "black");*/
-
-  }
+  
   lineColor(d) {
     return d.color = this.color(d.key);
   }
@@ -164,12 +140,17 @@ export class TimeSeriesGraph {
     this.data = data;
     // Adds the svg canvas
     this.svg = this.createCanvas();
+    // Scale the range of the data
+    this.setDomain();
+    //draw the axis
+    this.drawAxis()
+    //paint the lines
     this.updateGraph();
+    
   }
 
   updateGraph(key) {
-    // Scale the range of the data
-    this.setDomain();
+    
     //create the line function
     var line = this.createLine(this.x,this.y);
     // Nest the entries by symbol
@@ -186,16 +167,6 @@ export class TimeSeriesGraph {
         .on('mouseover', (e) => this.fire('highlight',d.key))
         .on('mouseout', (e) => this.fire('restore',d.key));        
     }, this);
-    // Add the X Axis
-    this.svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + this.height + ")")
-      .call(this.xAxis);
-    // Add the Y Axis
-    this.svg.append("g")
-      .attr("class", "y axis")
-      .call(this.yAxis);
-    //add the legend
-    this.createLegend();
-  }
+         
+  }  
 }

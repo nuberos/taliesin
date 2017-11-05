@@ -23,13 +23,21 @@ var components = {
   controls: document.getElementById('controls'),
   primary: document.getElementById('map'),
   secondary: document.getElementById('graph'),
-  tertiary: document.getElementById('chart')
+  tertiary: document.getElementById('chart'),
+  primaryDetail: {
+    container: document.getElementById("neighbourhoodmapcontainer"),
+    elem: document.getElementById('neighbourhoodmap')
+  },
+  secondaryDetail: {
+    container: document.getElementById("detailscontainer"),
+    elem: document.getElementById('detailscontent')
+  }
 };
 var config = window.__APPCFG__;
 var data = window.__INITIAL_STATE__;
-var controls = new Controls({},document.getElementById('controls'));
+var controls = new Controls(config,components);
 controls.init();
-var map = new Map(document.getElementById("detailscontainer"),document.getElementById('neighbourhoodmap'));
+var map = new Map(config,components,data.geoData);
 function showAllData(evt) {
   document.getElementById("detailscontent").style.left = "-9999px";
   document.getElementById("neighbourhoodmap").style.left = "-9999px";

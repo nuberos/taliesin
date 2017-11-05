@@ -13,19 +13,18 @@
   <link rel="stylesheet" href="PATH/TO/iconic-glyphs-legacy.css">
 <![endif]-->
   <style>
+     
+    body {
+      font-family: 'Lato', sans-serif;
+    } 
+
     #map #districts path {
       stroke: white;
       stroke-width: 2px;
     }
-    /*
-#neighbourhoods path {
-  stroke:white;
-  stroke-width: 1px;
-}
-*/
 
     #map #neighbourhoods path:hover {
-      fill-opacity: .7;
+      fill-opacity: .7 !important;
       cursor: pointer;
       cursor: hand;
     }
@@ -33,10 +32,6 @@
     #back {
       cursor: pointer;
       cursor: hand;
-    }
-
-    body {
-      font-family: 'Lato', sans-serif;
     }
 
     #neighbourhoodmapcontainer,
@@ -65,7 +60,7 @@
       width: 200px;
       height: 250px;
       padding: 2px;
-      font: 12px sans-serif;
+      font: 12px 'Lato', sans-serif;
       background: white;
       border: 0px;
       border-radius: 8px;
@@ -83,11 +78,14 @@
       background-image: -o-linear-gradient(left, #C9F, #63C, #C9F);
     }
 
-
     #graph path {
-      /*stroke: steelblue;*/
-      stroke-width: 2;
+      
+      stroke-width: 1;
       fill: none;
+    }
+
+    #graph text.label {
+        font-size: 12px;
     }
 
     #graph .axis path,
@@ -103,6 +101,12 @@
     #graph .line {
       cursor: pointer;
       cursor: hand;
+    }
+
+    #controls .selected {
+      color: #7f7f7f !important;
+      text-decoration: none;
+      background-color: #f8f9fa;
     }
   </style>
 </head>
